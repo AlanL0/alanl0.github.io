@@ -34,3 +34,6 @@ header p {
 header .col-sm-4 h1{
   color: #00FF00;
 }
+.row{
+  padding: 25px;
+}
