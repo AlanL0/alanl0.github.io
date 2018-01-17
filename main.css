@@ -1,6 +1,10 @@
 .jumbotron {
   background-color:blue ;
 }
+.jumbotron ul{
+  font-size: 2em;
+  color: green;
+}
 .jumbotron h1{
   color:black;
 }
