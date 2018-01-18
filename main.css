@@ -1,6 +1,9 @@
 .banner-bg {
   background-image: url('construct.png') ;
   background-size: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center; 
 }
 .jumbotron ul{
   font-size: 2em;
