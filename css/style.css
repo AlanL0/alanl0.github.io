@@ -1,0 +1,17 @@
+#namebrand
+{
+  color: blue;
+}
+
+.navbar .nav-link
+{
+  font-size: 15px;
+  text-transform: uppercase;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+}
+
+.navbar .nav-item.active
+{
+  border-left: #444 3px solid;
+}
