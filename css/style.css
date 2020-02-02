@@ -2,13 +2,13 @@
 {
   color: blue;
 }
-
 .navbar .nav-link
 {
   font-size: 15px;
   text-transform: uppercase;
   padding-left: 1rem !important;
   padding-right: 1rem !important;
+  display: block;
 }
 
 /*.navbar .nav-item.active*/
