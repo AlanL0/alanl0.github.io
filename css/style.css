@@ -11,17 +11,18 @@
   padding-right: 1rem !important;
 }
 
-.navbar .nav-item.active
-{
-  border-left: #444 3px solid;
-}
+/*.navbar .nav-item.active*/
+/*{*/
+/*  border-left: #444 3px solid;*/
+/*}*/
 
 #home-heading
 {
-  position: center;
+  position: relative;
   min-height: 600px;
-  background: url("../img/background-alt.jpg");
+  min-width: 550px;
+  background: url("../img/background-light.jpg");
   background-attachment: fixed;
   background-repeat: no-repeat;
-  text-align: center;
+  background-position: center;
 }
