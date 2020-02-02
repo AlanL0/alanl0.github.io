@@ -15,3 +15,13 @@
 {
   border-left: #444 3px solid;
 }
+
+#home-heading
+{
+  position: center;
+  min-height: 600px;
+  background: url("../img/background-alt.jpg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  text-align: center;
+}
