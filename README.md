@@ -1,2 +1,2 @@
 # AlanL0.github.io
-Website hosting 
+## Technologies Used: ReactJS 
