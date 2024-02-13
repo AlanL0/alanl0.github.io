@@ -74,12 +74,7 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Build with Next.js
-        run: ${{ steps.detect-package-manager.outputs.runner }} next build
-  # Upload Job
-  upload:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
+        run: ${{ steps.detect-package-manager.outputs.runner }} next build && sleep 10
       - name: Sleep and Check
         run: sleep 10 && ls -la
       - name: Upload artifact
