@@ -1,0 +1,407 @@
+[33mcommit 752d0badea903ab0b31fe6af1f2e3a38f8c80845[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Alan Lo <lalan34@gmail.com>
+Date:   Mon Feb 12 23:28:58 2024 -0800
+
+    initial commit
+
+[33mcommit 6257b70c1bdaa5131530c02d73f6d714ae559c38[m
+Author: Alan Lo <lalan34@gmail.com>
+Date:   Mon Feb 12 23:18:14 2024 -0800
+
+    Clean house
+
+[33mcommit 3d3dfc5789f7173138d90517aab09f41347a7a18[m
+Author: Alan Lo <lalan34@gmail.com>
+Date:   Mon Feb 12 23:14:34 2024 -0800
+
+    Revert back to nextjs
+
+[33mcommit 360316838c204d1e3e3b7b57f8bb053468700420[m
+Author: Alan Lo <lalan34@gmail.com>
+Date:   Mon Feb 12 23:12:48 2024 -0800
+
+    Revert back to next.js
+
+[33mcommit 85364c53288186271e95a6d4c789fc44b1fa0d4c[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Alan Lo <lalan34@gmail.com>
+Date:   Mon Feb 12 22:55:47 2024 -0800
+
+    Converting next.js to static html
+
+[33mcommit 8f1b6c124450bbcaa1bee6520fb62f97f9f88719[m
+Author: Alan Lo <lalan34@gmail.com>
+Date:   Sat Feb 10 23:18:28 2024 -0800
+
+    Initial React Commit
+
+[33mcommit 712e77e8c5d7616b2ad938877d7f4b329a8ea398[m
+Author: Alan Lo <lalan34@gmail.com>
+Date:   Sat Aug 14 14:08:20 2021 -0600
+
+    Fixed autotype by Vs
+
+[33mcommit d54fd6be1a28ddf1592d2053615768ba2d3bc039[m
+Author: Alan Lo <lalan34@gmail.com>
+Date:   Sat Aug 14 14:06:59 2021 -0600
+
+    Change background
+
+[33mcommit 157bb56174080e778c26b6cc158ed8d6dfdb698e[m
+Author: Alan Lo <lalan34@gmail.com>
+Date:   Sat Feb 8 01:30:20 2020 -0700
+
+    Sizing
+
+[33mcommit a1384b89454c30fa44d9da7a1e5aaadd88bb2767[m
+Author: Alan Lo <lalan34@gmail.com>
+Date:   Sat Feb 8 01:27:56 2020 -0700
+
+    Saturday Changes
+
+[33mcommit 3d6a67ffe1d0b17086d9e39a920824eb622730bb[m
+Author: Alan Lo <lalan34@gmail.com>
+Date:   Sat Feb 8 01:26:23 2020 -0700
+
+    In Construction banner
+
+[33mcommit da11acd82f7ee31a54bf60f291e99b3bd174fcef[m
+Author: AlanL0 <lalan34@gmail.com>
+Date:   Mon Feb 3 21:40:14 2020 -0700
+
+    Using new version of Bootstrap
+
+[33mcommit cf1fa6e49da20f8dfe8408ccacc79c60152522dd[m
+Author: AlanL0 <lalan34@gmail.com>
+Date:   Mon Feb 3 21:38:19 2020 -0700
+
+    Using new version of Bootstrap
+
+[33mcommit 08efd1630fe95c21cc3de7d28ae09cae33f066fa[m
+Author: AlanL0 <lalan34@gmail.com>
+Date:   Sun Feb 2 01:31:25 2020 -0700
+
+    fix sizing on phones?
+
+[33mcommit f0ab03499b2eeb4de774c23bf6beda5ec9f3732e[m
+Author: AlanL0 <lalan34@gmail.com>
+Date:   Sun Feb 2 01:15:43 2020 -0700
+
+    fix sizing on phones?
+
+[33mcommit 9590a71bb6428c7d89e4eea7318964fab3322486[m
+Author: AlanL0 <lalan34@gmail.com>
+Date:   Sun Feb 2 01:11:42 2020 -0700
+
+    fix sizing on phones?
+
+[33mcommit 696b454ccbf93723a3a73c3a160b0fddef26a519[m
+Author: AlanL0 <lalan34@gmail.com>
+Date:   Sun Feb 2 01:06:17 2020 -0700
+
+    fix sizing on phones?
+
+[33mcommit 56f0f6c417b2748a6201285b9a45e43648557693[m
+Author: AlanL0 <lalan34@gmail.com>
+Date:   Sun Feb 2 00:53:53 2020 -0700
+
+    fix sizing on phones?
+
+[33mcommit 687ca30861f6b5cdd5845201f250ed4c892430b4[m
+Author: AlanL0 <lalan34@gmail.com>
+Date:   Sun Feb 2 00:45:19 2020 -0700
+
+    Customized Images
+
+[33mcommit a0bf47e692748c587c5ebea3b2f3c22435bfe61d[m
+Author: AlanL0 <lalan34@gmail.com>
+Date:   Sat Feb 1 22:21:47 2020 -0700
+
+    Adding in new pages and Updates
+
+[33mcommit c4cfb786fec3f9922266b88a800a242965e180f5[m
+Author: AlanL0 <lalan34@gmail.com>
+Date:   Sat Feb 1 22:19:37 2020 -0700
+
+    Adding in new pages and Updates
+
+[33mcommit 7dbefd8369db552670662a16a3089983fa76fc2c[m
+Author: Alan Lo <lalan34@gmail.com>
+Date:   Thu Jan 30 23:14:13 2020 -0700
+
+    Icon?
+
+[33mcommit aafcde85ab1eaced313dcf08c85be1bb37c4ba73[m
+Author: Alan Lo <lalan34@gmail.com>
+Date:   Thu Jan 30 23:10:13 2020 -0700
+
+    Little logo for website header
+
+[33mcommit 673fdfa717b94382f05b74d0194cdd86e6fbf969[m
+Author: Alan Lo <lalan34@gmail.com>
+Date:   Sun Dec 8 00:46:15 2019 -0700
+
+    added smaller logo
+
+[33mcommit e2cb5d4e9d43b3ec3e2c2c52eb3b8a7c404bc358[m
+Author: AlanL0 <lalan34@gmail.com>
+Date:   Thu Nov 7 20:58:47 2019 -0700
+
+    Improved the website a little bit
+
+[33mcommit b1898bf68fc2f8ebfb9357cba603df054d2dcbaa[m
+Author: Alan Lo <lalan34@gmail.com>
+Date:   Fri Oct 26 00:12:22 2018 -0700
+
+    Update index.html
+
+[33mcommit 514ecb4418eb04e3c6ce0b80a3ba94aa730b1e84[m
+Author: Alan Lo <lalan34@gmail.com>
+Date:   Wed Mar 7 10:39:14 2018 -0800
+
+    Update main.css
+
+[33mcommit a90c4bd0504865984af2384b45f7f67e1f8fedf6[m
+Author: Alan Lo <lalan34@gmail.com>
+Date:   Wed Mar 7 10:38:18 2018 -0800
+
+    Update index.html
+
+[33mcommit d36b196d10399cb58a5d76e814fc1ba457ef0ed5[m
+Author: Alan Lo <lalan34@gmail.com>
+Date:   Wed Mar 7 10:36:41 2018 -0800
+
+    added new content
+
+[33mcommit 5f0dbedb7b4b91df1205081146a5efe9490e40d6[m
+Author: Alan Lo <lalan34@gmail.com>
+Date:   Mon Jan 22 14:13:49 2018 -0800
+
+    Update index.html
+
+[33mcommit df38e357ffe91d3c702164cf1b511f7ebcba9335[m
+Author: Alan Lo <lalan34@gmail.com>
+Date:   Mon Jan 22 14:11:39 2018 -0800
+
+    Update index.html
+
+[33mcommit 012d76bc8a7e8c57f68d4489ef68d64a76f820c2[m
+Author: Alan Lo <lalan34@gmail.com>
+Date:   Wed Jan 17 16:07:12 2018 -0800
+
+    Update main.css
+
+[33mcommit 7d5fada422b200ae5ba2ad5ed4a4ffc6a387bcb5[m
+Author: Alan Lo <lalan34@gmail.com>
+Date:   Wed Jan 17 16:04:14 2018 -0800
+
+    Update main.css
+
+[33mcommit 9e237c840c516c62f71f2d94d388661e541591e7[m
+Author: Alan Lo <lalan34@gmail.com>
+Date:   Wed Jan 17 16:03:18 2018 -0800
+
+    Update index.html
+
+[33mcommit 15313073bbe2cdf9cc711edcc2bed9030fa96426[m
+Author: Alan Lo <lalan34@gmail.com>
+Date:   Wed Jan 17 16:02:41 2018 -0800
+
+    Update main.css
+
+[33mcommit 00be27c09f6616988bfa013643043de14aa4f90c[m
+Author: Alan Lo <lalan34@gmail.com>
+Date:   Wed Jan 17 16:01:52 2018 -0800
+
+    Update main.css
+
+[33mcommit b6a20b0e785630aed646a16b4b1fc3a32bc05081[m
+Author: Alan Lo <lalan34@gmail.com>
+Date:   Wed Jan 17 16:00:29 2018 -0800
+
+    Update index.html
+
+[33mcommit 6dd1690f654be9f446260863e561e3a0eaa359e3[m
+Author: Alan Lo <lalan34@gmail.com>
+Date:   Wed Jan 17 15:59:12 2018 -0800
+
+    Update main.css
+
+[33mcommit 52f620cdb81658aae3426743cbf3ff4822da28ec[m
+Author: Alan Lo <lalan34@gmail.com>
+Date:   Wed Jan 17 15:58:47 2018 -0800
+
+    Update main.css
+
+[33mcommit 21c292a109334f3cf740d163ec9174f0fcf956f5[m
+Author: Alan Lo <lalan34@gmail.com>
+Date:   Wed Jan 17 15:57:02 2018 -0800
+
+    updated jumbotron
+
+[33mcommit 8d02c78d43fe5adec9655e1b9705e3790c394ca7[m
+Author: Alan Lo <lalan34@gmail.com>
+Date:   Wed Jan 17 15:55:08 2018 -0800
+
+    updated css
+
+[33mcommit 8465c47b30d01a474a00ee2d248c91c11c42a7da[m
+Author: Alan Lo <lalan34@gmail.com>
+Date:   Wed Jan 17 15:53:13 2018 -0800
+
+    Update main.css
+
+[33mcommit ce7be241dedfe938cb5faab4cdbae2ca2da2fc3e[m
+Author: Alan Lo <lalan34@gmail.com>
+Date:   Wed Jan 17 15:52:00 2018 -0800
+
+    Update main.css
+
+[33mcommit c458248196c636f588ee9746ab4eda14fb0f31b4[m
+Author: Alan Lo <lalan34@gmail.com>
+Date:   Wed Jan 17 15:48:46 2018 -0800
+
+    Update main.css
+
+[33mcommit 8f44d59bab2bd42ab82f5f56e269e4342bfa887a[m
+Author: Alan Lo <lalan34@gmail.com>
+Date:   Wed Jan 17 15:46:00 2018 -0800
+
+    upload image
+
+[33mcommit 232cf8b2b72dff2f89bec1010647b0c3ba4966ed[m
+Author: Alan Lo <lalan34@gmail.com>
+Date:   Wed Jan 17 15:43:13 2018 -0800
+
+    Add files via upload
+
+[33mcommit fe043dc7997cde81bf0537e7103afcc83ed58daf[m
+Author: Alan Lo <lalan34@gmail.com>
+Date:   Wed Jan 17 15:38:12 2018 -0800
+
+    Update main.css
+
+[33mcommit 52a9b9e6d08a57fd3218d4c7a3eb5588be4fcba8[m
+Author: Alan Lo <lalan34@gmail.com>
+Date:   Wed Jan 17 15:35:01 2018 -0800
+
+    Update main.css
+
+[33mcommit 626d1524ef4b21d51fed159df1450f7e6e7b81fa[m
+Author: Alan Lo <lalan34@gmail.com>
+Date:   Wed Jan 17 15:33:42 2018 -0800
+
+    main
+
+[33mcommit b7901c1a4489f02a734d7798ba99f978213abf55[m
+Author: Alan Lo <lalan34@gmail.com>
+Date:   Wed Jan 17 15:32:23 2018 -0800
+
+    new
+
+[33mcommit 3bc1a5a50e5ec83fa92f9c8444334aef72a68587[m
+Author: Alan Lo <lalan34@gmail.com>
+Date:   Wed Jan 17 15:30:33 2018 -0800
+
+    format?
+
+[33mcommit 4dcb7feb98424bb6f16738d382935f663053bbae[m
+Author: Alan Lo <lalan34@gmail.com>
+Date:   Wed Jan 17 12:54:52 2018 -0800
+
+    Update main.css
+
+[33mcommit 1d2494ba6da3b2cf98ccd58b54ee2dc7557d7710[m
+Author: Alan Lo <lalan34@gmail.com>
+Date:   Wed Jan 17 12:53:58 2018 -0800
+
+    Update main.css
+
+[33mcommit 18b12894d71b878a0eceb6ae24a280ea19e278ae[m
+Author: Alan Lo <lalan34@gmail.com>
+Date:   Wed Jan 17 12:51:09 2018 -0800
+
+    format
+
+[33mcommit 453e2cb835e245dddcef0f91ff6d0ada213fb7da[m
+Author: Alan Lo <lalan34@gmail.com>
+Date:   Wed Jan 17 12:45:46 2018 -0800
+
+    added new class
+
+[33mcommit 000864d2312026841b0a48d10cf26b29dfd838f0[m
+Author: Alan Lo <lalan34@gmail.com>
+Date:   Wed Jan 17 12:45:13 2018 -0800
+
+    spelling
+
+[33mcommit 468698a46b837170de039b31c99c45027a655153[m
+Author: Alan Lo <lalan34@gmail.com>
+Date:   Wed Jan 17 12:41:55 2018 -0800
+
+    web columns
+
+[33mcommit 0227ed4e862159d0217ce66b357bfd1e2c5d0061[m
+Author: Alan Lo <lalan34@gmail.com>
+Date:   Wed Jan 17 10:14:36 2018 -0800
+
+    s
+
+[33mcommit a2b81408bbe82f6587c211f558212f7f728f4079[m
+Author: Alan Lo <lalan34@gmail.com>
+Date:   Wed Jan 17 10:13:19 2018 -0800
+
+    prof
+
+[33mcommit fb202861cb212c93e8d05a2fe06961e919bf98a7[m
+Author: Alan Lo <lalan34@gmail.com>
+Date:   Mon Jan 15 19:21:45 2018 -0800
+
+    color
+
+[33mcommit 158d49064f25c5ef031f621aed4c8a3940a0bbc4[m
+Author: Alan Lo <lalan34@gmail.com>
+Date:   Mon Jan 15 19:18:40 2018 -0800
+
+    test
+
+[33mcommit 8ee646d4150fdd2ff3ddb1846e90c838ce109adc[m
+Author: Alan Lo <lalan34@gmail.com>
+Date:   Mon Jan 15 19:17:28 2018 -0800
+
+    New css
+
+[33mcommit 66b0ae0fbc5ef05a5478e10ac41126070a0f69e1[m
+Author: Alan Lo <lalan34@gmail.com>
+Date:   Mon Jan 15 19:16:13 2018 -0800
+
+    Test
+
+[33mcommit fcc079a23854646af25f3b0c555ac4782828878c[m
+Author: Alan Lo <lalan34@gmail.com>
+Date:   Mon Jan 15 18:14:10 2018 -0800
+
+    new website
+
+[33mcommit cd73ce2a2ad910465b9f9731e1766430cdfa2f17[m
+Author: Alan Lo <lalan34@gmail.com>
+Date:   Mon Jan 15 18:10:27 2018 -0800
+
+    Update index.html
+
+[33mcommit a97d0b385f63e5143b5c249b851b991b7df3fc40[m
+Author: Alan Lo <lalan34@gmail.com>
+Date:   Wed Jul 26 18:47:05 2017 -0700
+
+    Create index.html
+
+[33mcommit d5721fee4d5fc492ab86d9fee964ff73c8d81362[m
+Author: Alan Lo <lalan34@gmail.com>
+Date:   Wed Jul 26 18:45:39 2017 -0700
+
+    Create CNAME.html
+
+[33mcommit 0b30b54759cac19f9211d82a0cb7bb2e3daac1cb[m
+Author: Alan Lo <lalan34@gmail.com>
+Date:   Wed Jul 26 18:44:30 2017 -0700
+
+    Initial commit
