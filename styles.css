@@ -1,0 +1,41 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #003366; /* Dark blue background */
+}
+
+#container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.moving-box {
+    position: absolute;
+    width: 150px; /* Diameter of the circle */
+    height: 150px; /* Diameter of the circle */
+    border-radius: 50%; /* Makes the element a circle */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: #FF6347; /* Example color, adjust as needed */
+    font-weight: bold;
+    transition: all 0.5s ease; /* Smooth transition for repositioning */
+}
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: grid;
+    place-items: center; /* Center both horizontally and vertically */
+    background-color: #003366; /* Dark blue background */
+}
+
+.banner-container {
+    /* Your banner container styles */
+    width: 646px; /* Width of your banner */
+    height: 220px; /* Height of your banner */
+    /* Add other styles for your banner as needed */
+}
