@@ -41,3 +41,72 @@ document.addEventListener('DOMContentLoaded', () => {
         window.open('https://github.com/AlanL0', '_blank');
     });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const boxIds = ['resume', 'contact', 'github-projects'];
+
+    const bringToFrontOnHover = (elementId) => {
+        const box = document.getElementById(elementId);
+        if (!box) return;
+
+        // Store the original background color
+        const originalColor = box.style.backgroundColor;
+
+        box.addEventListener('mouseover', () => {
+            box.style.zIndex = 10; // Bring to the front
+            box.style.backgroundColor = '#1e29ff'; // Change to highlight color
+        });
+
+        box.addEventListener('mouseout', () => {
+            box.style.zIndex = 1; // Reset z-index
+            box.style.backgroundColor = originalColor; // Revert to original color
+        });
+    };
+
+    // Apply functions to each box
+    boxIds.forEach(id => {
+        bringToFrontOnHover(id);
+    });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const banner = document.getElementById('banner');
+    const logoContainer = document.getElementById('logo-container');
+    const elementsToHide = document.querySelectorAll('.moving-box, #banner'); // Add other selectors as needed
+
+    const revertChanges = () => {
+        elementsToHide.forEach(el => el.style.display = ''); // Revert display
+        document.body.style.backgroundColor = ''; // Revert background color
+        logoContainer.classList.add('hidden');
+        logoContainer.style.display = 'none'; // Hide the logo again
+        clearTimeout(revertTimeout); // Clear the timeout to prevent it from running if manual revert is triggered
+    };
+
+    banner.addEventListener('click', () => {
+        // Hide elements and change background color
+        elementsToHide.forEach(el => el.style.display = 'none');
+        document.body.style.backgroundColor = '#003366'; // Changed to white as per requirement
+
+        // Ensure logoContainer is ready to be shown
+        logoContainer.style.display = 'flex'; // Use 'flex' to utilize the centering from CSS
+        logoContainer.classList.remove('hidden'); // Remove 'hidden' to make logo visible
+
+        // Apply effects immediately without the delay
+        logoContainer.classList.add('show-logo');
+
+        timeoutId = setTimeout(revertChanges, 10000);
+
+    });
+
+    logoContainer.addEventListener('click', () => {
+        clearTimeout(timeoutId); // Cancel the scheduled revertChanges
+        revertChanges(); // Immediately revert changes
+    });
+});
+
+
+
+
+
+
+

@@ -1,14 +1,14 @@
 body, html {
-    margin: 0;
-    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100%;
     background-color: #003366; /* Dark blue background */
 }
 
-#container {
-    position: relative;
-    width: 100%;
-    height: 100%;
+.centered-text {
+    justify-content: flex-start; /* Align the child content (text) to the right */
+    text-align: left; /* Ensures that the text within aligns to the right */
 }
 
 .moving-box {
@@ -24,19 +24,51 @@ body, html {
     font-weight: bold;
     transition: all 0.5s ease; /* Smooth transition for repositioning */
     border: 2px solid #1e29ff;
-}
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    display: grid;
-    place-items: center; /* Center both horizontally and vertically */
-    background-color: #003366; /* Dark blue background */
+    z-index: 1;
+    cursor: pointer;
 }
 
-.banner-container {
-    /* Your banner container styles */
-    width: 646px; /* Width of your banner */
-    height: 220px; /* Height of your banner */
-    /* Add other styles for your banner as needed */
+#banner {
+    cursor: pointer; /* Suggests to users that it's clickable */
+    width: 100%; /* Make the banner fill the container */
+    height: auto; /* Maintain aspect ratio */
 }
+
+.hidden {
+    display: none;
+}
+
+.centered-container, #logo-container {
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 2; /* Ensure it's above other content but might need adjustment based on your page's z-index usage */
+}
+
+/* Assume .show-logo class scales the logo up and ensures it's fully opaque */
+.show-logo img {
+    animation: scaleUp 1s forwards, fadeIn 1s forwards;
+}
+
+@keyframes scaleUp {
+    from {
+        transform: scale(0.5);
+    }
+    to {
+        transform: scale(3);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
