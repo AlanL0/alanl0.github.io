@@ -23,6 +23,7 @@ body, html {
     background-color: #FF6347; /* Example color, adjust as needed */
     font-weight: bold;
     transition: all 0.5s ease; /* Smooth transition for repositioning */
+    border: 2px solid #1e29ff;
 }
 body, html {
     margin: 0;
