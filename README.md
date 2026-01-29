@@ -1,5 +1,10 @@
-# My modern React website
+# Alan Lo
 
-Vite + React + TailwindCSS portfolio site.
-Minimalist black/white design inspired by karpathy.ai.
-Typewriter-style header &quot;Alan Lo&quot;, clickable cards for Resume, Contact, GitHub.
+Backend Software Engineer
+
+Personal portfolio website showcasing my work and experience.
+
+## Live Site
+
+[alanl0.github.io](https://alanl0.github.io)
+
