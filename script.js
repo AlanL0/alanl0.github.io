@@ -61,55 +61,171 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalContent = document.getElementById('modal-content');
     const modalClose = document.getElementById('modal-close');
 
-    // Section content templates
+    // Simple markdown to HTML parser
+    function parseMarkdown(md) {
+        return md
+            // Headers
+            .replace(/^### (.+)$/gm, '<h3>$1</h3>')
+            .replace(/^## (.+)$/gm, '<h3>$1</h3>')
+            .replace(/^# (.+)$/gm, '<h2>$1</h2>')
+            // Bold
+            .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+            // Italic
+            .replace(/\*(.+?)\*/g, '<em>$1</em>')
+            // Links
+            .replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>')
+            // Unordered lists
+            .replace(/^\- (.+)$/gm, '<li>$1</li>')
+            .replace(/(<li>.*<\/li>\n?)+/g, '<ul>$&</ul>')
+            // Paragraphs (lines that aren't already wrapped)
+            .replace(/^(?!<[hula]|<li)(.+)$/gm, '<p>$1</p>')
+            // Clean up empty paragraphs
+            .replace(/<p>\s*<\/p>/g, '');
+    }
+
+    // Fetch markdown content from file
+    async function fetchMarkdownContent(filename, fallbackTitle) {
+        try {
+            const response = await fetch(`content/${filename}`);
+            if (!response.ok) throw new Error(`Failed to load ${filename}`);
+            const markdown = await response.text();
+            return parseMarkdown(markdown);
+        } catch (error) {
+            console.error(`Error loading ${filename}:`, error);
+            return `<h2>${fallbackTitle}</h2><p>Content unavailable.</p>`;
+        }
+    }
+
+    // Parse skills markdown into structured data
+    function parseSkillsMarkdown(markdown) {
+        const categories = [];
+        let currentCategory = null;
+
+        const lines = markdown.split('\n');
+        for (const line of lines) {
+            // Category header (## Header)
+            if (line.startsWith('## ')) {
+                if (currentCategory) categories.push(currentCategory);
+                currentCategory = {
+                    title: line.replace('## ', '').trim(),
+                    skills: []
+                };
+            }
+            // Skill item (- **Skill** - description)
+            else if (line.startsWith('- ') && currentCategory) {
+                const skillLine = line.replace('- ', '').trim();
+                // Extract skill name (bold text) and description
+                const boldMatch = skillLine.match(/\*\*(.+?)\*\*/);
+                const skillName = boldMatch ? boldMatch[1] : skillLine.split(' - ')[0];
+                const description = skillLine.replace(/\*\*(.+?)\*\*/, '').replace(/^\s*-\s*/, '').trim();
+                currentCategory.skills.push({ name: skillName, description });
+            }
+        }
+        if (currentCategory) categories.push(currentCategory);
+        return categories;
+    }
+
+    // Render skills as card grid with expandable details
+    function renderSkillsCards(categories) {
+        let html = '<h2>Skills</h2><div class="skills-cards-grid">';
+
+        categories.forEach((category, index) => {
+            const previewSkills = category.skills.slice(0, 3);
+            const hasMore = category.skills.length > 3;
+
+            html += `
+                <div class="skill-card" data-category="${index}">
+                    <h3>${category.title}</h3>
+                    <div class="skill-preview">
+                        ${previewSkills.map(s => `<span class="skill-tag">${s.name}</span>`).join('')}
+                    </div>
+                    ${hasMore ? `<button class="skill-more-btn" data-category="${index}">+ ${category.skills.length - 3} More</button>` : ''}
+                </div>
+            `;
+        });
+
+        html += '</div>';
+
+        // Hidden expanded view
+        html += '<div class="skill-expanded-overlay" id="skill-expanded-overlay">';
+        html += '<div class="skill-expanded-content" id="skill-expanded-content"></div>';
+        html += '</div>';
+
+        return { html, categories };
+    }
+
+    // Fetch and render skills
+    async function fetchSkillsContent() {
+        try {
+            const response = await fetch('content/skills.md');
+            if (!response.ok) throw new Error('Failed to load skills.md');
+            const markdown = await response.text();
+            const categories = parseSkillsMarkdown(markdown);
+            return renderSkillsCards(categories);
+        } catch (error) {
+            console.error('Error loading skills:', error);
+            return { html: '<h2>Skills</h2><p>Content unavailable.</p>', categories: [] };
+        }
+    }
+
+    // Setup skill card click handlers
+    function setupSkillCardHandlers(categories) {
+        const overlay = document.getElementById('skill-expanded-overlay');
+        const content = document.getElementById('skill-expanded-content');
+
+        // "+ More" button clicks
+        document.querySelectorAll('.skill-more-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const categoryIndex = parseInt(btn.dataset.category);
+                const category = categories[categoryIndex];
+                showExpandedSkills(category, overlay, content);
+            });
+        });
+
+        // Card clicks (also expand)
+        document.querySelectorAll('.skill-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const categoryIndex = parseInt(card.dataset.category);
+                const category = categories[categoryIndex];
+                showExpandedSkills(category, overlay, content);
+            });
+        });
+
+        // Close expanded view
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) {
+                overlay.classList.remove('active');
+            }
+        });
+    }
+
+    // Show expanded skills for a category
+    function showExpandedSkills(category, overlay, content) {
+        content.innerHTML = `
+            <button class="skill-expanded-close">&times;</button>
+            <h3>${category.title}</h3>
+            <ul class="skill-full-list">
+                ${category.skills.map(s => `
+                    <li>
+                        <strong>${s.name}</strong>
+                        ${s.description ? `<span class="skill-desc">- ${s.description}</span>` : ''}
+                    </li>
+                `).join('')}
+            </ul>
+        `;
+        overlay.classList.add('active');
+
+        // Close button handler
+        content.querySelector('.skill-expanded-close').addEventListener('click', () => {
+            overlay.classList.remove('active');
+        });
+    }
+
+    // Section content templates (about and skills loaded from markdown files)
     const sectionContent = {
-        about: `
-            <h2>About Me</h2>
-            <p>Hi, I'm Alan Lo - a software developer passionate about building robust backend systems and solving complex problems.</p>
-            <p>I specialize in creating efficient, scalable solutions using modern technologies. My approach combines clean code principles with practical problem-solving to deliver reliable software.</p>
-            <p>When I'm not coding, I enjoy exploring new technologies and contributing to interesting projects.</p>
-        `,
-        skills: `
-            <h2>Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Programming</h3>
-                    <ul>
-                        <li>C/C++</li>
-                        <li>Java</li>
-                        <li>Python</li>
-                        <li>Kotlin</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>Cloud & DevOps</h3>
-                    <ul>
-                        <li>AWS / EKS</li>
-                        <li>Docker</li>
-                        <li>Kubernetes</li>
-                        <li>Git</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>Backend & Tools</h3>
-                    <ul>
-                        <li>MySQL / Redis</li>
-                        <li>Vert.x</li>
-                        <li>GStreamer API</li>
-                        <li>Datadog / JIRA</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>Hardware & Embedded</h3>
-                    <ul>
-                        <li>Raspberry Pi</li>
-                        <li>Arduino</li>
-                        <li>OpenCV</li>
-                        <li>Linux / Ubuntu</li>
-                    </ul>
-                </div>
-            </div>
-        `,
+        about: '<div class="loading" id="about-loading"></div><div id="about-content"></div>',
+        skills: '<div class="loading" id="skills-loading"></div><div id="skills-content"></div>',
         projects: `
             <h2>Projects</h2>
             <div class="loading" id="projects-loading"></div>
@@ -118,12 +234,27 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // Open modal with content
-    function openModal(section) {
+    async function openModal(section) {
         modalContent.innerHTML = sectionContent[section];
         modalOverlay.classList.add('active');
 
-        // If projects section, fetch from GitHub
-        if (section === 'projects') {
+        // Load content based on section
+        if (section === 'about') {
+            const content = await fetchMarkdownContent('about.md', 'About Me');
+            const loadingEl = document.getElementById('about-loading');
+            const contentEl = document.getElementById('about-content');
+            if (loadingEl) loadingEl.style.display = 'none';
+            if (contentEl) contentEl.innerHTML = content;
+        } else if (section === 'skills') {
+            const { html, categories } = await fetchSkillsContent();
+            const loadingEl = document.getElementById('skills-loading');
+            const contentEl = document.getElementById('skills-content');
+            if (loadingEl) loadingEl.style.display = 'none';
+            if (contentEl) {
+                contentEl.innerHTML = html;
+                setupSkillCardHandlers(categories);
+            }
+        } else if (section === 'projects') {
             fetchGitHubProjects();
         }
     }
