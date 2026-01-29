@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
         githubUsername: 'AlanL0',
         email: 'alomo@uci.edu',
         linkedinUrl: 'https://www.linkedin.com/in/alanlo2023/',
-        resumePath: 'img/Master-Resume.pdf'
+        resumePath: 'public/img/Master-Resume.pdf'
     };
 
     // Theme switching based on PST time
