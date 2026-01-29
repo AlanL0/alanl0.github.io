@@ -1,74 +1,151 @@
-body, html {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    background-color: #228B22; /* Clawd forest green background */
+/* Clawd Modern Portfolio Styles */
+
+/* Animations and Logo */
+.hidden {
+  display: none !important;
+}
+
+.centered-container,
+#logo-container {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle, rgba(139,139,139,0.3) 0%, rgba(0,0,0,0.95) 70%);
+  backdrop-filter: blur(20px);
+}
+
+#logo {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  filter: drop-shadow(0 25px 50px rgba(0,0,0,0.5));
+}
+
+#logo.show-logo {
+  animation: 
+    logoAppear 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+@keyframes logoAppear {
+  0% {
+    opacity: 0;
+    transform: scale(0.1) rotate(90deg);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1) rotate(5deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+/* Moving Boxes - Neumorphic Circles */
+.moving-box {
+  border-radius: 50%;
+  font-weight: 900;
+  font-size: clamp(1.125rem, 3vw, 1.75rem);
+  line-height: 1.1;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  width: 160px;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@media (min-width: 640px) {
+  .moving-box {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .moving-box {
+    width: 240px;
+    height: 240px;
+  }
+}
+
+/* Green Theme Neumorph */
+.green-theme {
+  background: linear-gradient(145deg, #1e4620, #143114);
+  color: #d4f4d4;
+  box-shadow: 
+    12px 12px 24px rgba(0, 0, 0, 0.6),
+    -12px -12px 24px rgba(60, 110, 60, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.green-theme:hover {
+  background: linear-gradient(145deg, #244d25, #1a361b);
+  transform: translateY(-5px) scale(1.06);
+  box-shadow: 
+    16px 16px 32px rgba(0, 0, 0, 0.7),
+    -16px -16px 32px rgba(70, 120, 70, 0.45),
+    0 0 0 1px rgba(34, 139, 34, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.green-theme:active {
+  transform: translateY(2px) scale(0.97);
+  box-shadow: 
+    inset 8px 8px 16px rgba(0, 0, 0, 0.7),
+    inset -8px -8px 16px rgba(40, 90, 40, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* Red Theme Neumorph */
+.red-theme {
+  background: linear-gradient(145deg, #461e1e, #331414);
+  color: #f4d4d4;
+  box-shadow: 
+    12px 12px 24px rgba(0, 0, 0, 0.6),
+    -12px -12px 24px rgba(110, 60, 60, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.red-theme:hover {
+  background: linear-gradient(145deg, #501f1f, #3a1515);
+  transform: translateY(-5px) scale(1.06);
+  box-shadow: 
+    16px 16px 32px rgba(0, 0, 0, 0.7),
+    -16px -16px 32px rgba(120, 70, 70, 0.45),
+    0 0 0 1px rgba(255, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.red-theme:active {
+  transform: translateY(2px) scale(0.97);
+  box-shadow: 
+    inset 8px 8px 16px rgba(0, 0, 0, 0.7),
+    inset -8px -8px 16px rgba(90, 40, 40, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* Banner enhancements */
+.banner-container {
+  cursor: pointer;
+}
+
+.banner {
+  transition: all 0.3s ease;
+}
+
+.banner-container:hover .banner {
+  transform: scale(1.02);
+  filter: brightness(0.7) contrast(1.1);
 }
 
 .centered-text {
-    justify-content: flex-start; /* Align the child content (text) to the right */
-    text-align: left; /* Ensures that the text within aligns to the right */
+  pointer-events: none;
 }
-
-.moving-box {
-    position: absolute;
-    width: 150px; /* Diameter of the circle */
-    height: 150px; /* Diameter of the circle */
-    border-radius: 50%; /* Makes the element a circle */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    background-color: #FF0000; /* Clawd pure red */
-    font-weight: bold;
-    transition: all 0.5s ease; /* Smooth transition for repositioning */
-    border: 2px solid #1e29ff;
-    z-index: 1;
-    cursor: pointer;
-}
-
-#banner {
-    cursor: pointer; /* Suggests to users that it's clickable */
-    width: 100%; /* Make the banner fill the container */
-    height: auto; /* Maintain aspect ratio */
-}
-
-.hidden {
-    display: none;
-}
-
-.centered-container, #logo-container {
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 2; /* Ensure it's above other content but might need adjustment based on your page's z-index usage */
-}
-
-/* Assume .show-logo class scales the logo up and ensures it's fully opaque */
-.show-logo img {
-    animation: scaleUp 1s forwards, fadeIn 1s forwards;
-}
-
-@keyframes scaleUp {
-    from {
-        transform: scale(0.5);
-    }
-    to {
-        transform: scale(3);
-    }
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
