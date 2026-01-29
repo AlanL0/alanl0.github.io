@@ -20,7 +20,7 @@ body, html {
     justify-content: center;
     align-items: center;
     color: white;
-    background-color: #FF6347; /* Example color, adjust as needed */
+    background-color: #FF0000; /* Clawd pure red */
     font-weight: bold;
     transition: all 0.5s ease; /* Smooth transition for repositioning */
     border: 2px solid #1e29ff;
