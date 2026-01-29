@@ -1,0 +1,584 @@
+/* CSS Variables - Dark Theme (Night) */
+:root {
+    --bg-primary: #003366;
+    --bg-secondary: #001a33;
+    --bg-image: url('img/background-dark.jpg');
+    --bg-overlay-opacity: 0.7;
+    --glow-color: #00ffff;
+    --glow-dim: #0099cc;
+    --accent-color: #1e90ff;
+    --text-primary: #e0f7ff;
+    --text-bright: #ffffff;
+    --node-bg: #0a1929;
+    --node-border: #00ffff;
+    --chip-bg: #0d2137;
+    --chip-border: #00ccff;
+    --modal-bg: rgba(0, 26, 51, 0.95);
+}
+
+/* Light Theme (Day) */
+:root.light-theme {
+    --bg-primary: #87CEEB;
+    --bg-secondary: #5BA3C6;
+    --bg-image: url('img/background-light.jpg');
+    --bg-overlay-opacity: 0.5;
+    --glow-color: #00cc66;
+    --glow-dim: #009944;
+    --accent-color: #00aa55;
+    --text-primary: #1a4d2e;
+    --text-bright: #0d3320;
+    --node-bg: rgba(255, 255, 255, 0.9);
+    --node-border: #00cc66;
+    --chip-bg: rgba(255, 255, 255, 0.95);
+    --chip-border: #00dd77;
+    --modal-bg: rgba(255, 255, 255, 0.95);
+}
+
+/* Reset and Base */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background-color: var(--bg-primary);
+    background-image: var(--bg-image);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+    opacity: var(--bg-overlay-opacity);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Central Chip */
+.chip-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.chip {
+    width: 225px;
+    height: 225px;
+    background: var(--chip-bg);
+    border: 3px solid var(--chip-border);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow:
+        0 0 20px var(--glow-color),
+        0 0 40px color-mix(in srgb, var(--glow-color) 30%, transparent),
+        inset 0 0 20px color-mix(in srgb, var(--glow-color) 10%, transparent);
+    animation: chipPulse 3s ease-in-out infinite;
+}
+
+.chip-logo {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 10px var(--glow-color));
+}
+
+@keyframes chipPulse {
+    0%, 100% {
+        box-shadow:
+            0 0 20px var(--glow-color),
+            0 0 40px color-mix(in srgb, var(--glow-color) 30%, transparent),
+            inset 0 0 20px color-mix(in srgb, var(--glow-color) 10%, transparent);
+    }
+    50% {
+        box-shadow:
+            0 0 30px var(--glow-color),
+            0 0 60px color-mix(in srgb, var(--glow-color) 50%, transparent),
+            inset 0 0 30px color-mix(in srgb, var(--glow-color) 20%, transparent);
+    }
+}
+
+/* Highlighted chip state - 20% brighter for 30 seconds */
+.chip.chip-highlight {
+    box-shadow:
+        0 0 40px var(--glow-color),
+        0 0 80px color-mix(in srgb, var(--glow-color) 60%, transparent),
+        inset 0 0 40px color-mix(in srgb, var(--glow-color) 30%, transparent);
+    animation: chipPulseHighlight 2s ease-in-out infinite;
+}
+
+.chip.chip-highlight .chip-logo {
+    filter: drop-shadow(0 0 20px var(--glow-color)) brightness(1.2);
+}
+
+@keyframes chipPulseHighlight {
+    0%, 100% {
+        box-shadow:
+            0 0 40px var(--glow-color),
+            0 0 80px color-mix(in srgb, var(--glow-color) 50%, transparent),
+            inset 0 0 40px color-mix(in srgb, var(--glow-color) 25%, transparent);
+    }
+    50% {
+        box-shadow:
+            0 0 60px var(--glow-color),
+            0 0 100px color-mix(in srgb, var(--glow-color) 70%, transparent),
+            inset 0 0 50px color-mix(in srgb, var(--glow-color) 35%, transparent);
+    }
+}
+
+/* Circuit SVG */
+.circuit-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Circuit Traces */
+.trace {
+    fill: none;
+    stroke: var(--glow-dim);
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    filter: drop-shadow(0 0 6px var(--glow-color)) drop-shadow(0 0 12px var(--glow-color));
+    stroke-dasharray: 20 10;
+    animation: traceFlow 1.5s linear infinite;
+}
+
+@keyframes traceFlow {
+    0% {
+        stroke-dashoffset: 30;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* Different animation delays for visual variety */
+#trace-about { animation-delay: 0s; }
+#trace-skills { animation-delay: 0.2s; }
+#trace-projects { animation-delay: 0.4s; }
+#trace-resume { animation-delay: 0.6s; }
+#trace-github { animation-delay: 0.8s; }
+#trace-linkedin { animation-delay: 1s; }
+#trace-contact { animation-delay: 1.2s; }
+
+/* Section Nodes */
+.node {
+    position: absolute;
+    width: 104px;
+    height: 104px;
+    background: var(--node-bg);
+    border: 2px solid var(--node-border);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 5;
+    transition: all 0.3s ease;
+    box-shadow:
+        0 0 15px color-mix(in srgb, var(--glow-color) 40%, transparent),
+        inset 0 0 10px color-mix(in srgb, var(--glow-color) 10%, transparent);
+}
+
+.node:hover {
+    transform: scale(1.15);
+    box-shadow:
+        0 0 25px var(--glow-color),
+        0 0 50px color-mix(in srgb, var(--glow-color) 60%, transparent),
+        inset 0 0 15px color-mix(in srgb, var(--glow-color) 20%, transparent);
+    border-color: var(--text-bright);
+}
+
+.node-icon {
+    width: 36px;
+    height: 36px;
+    color: var(--glow-color);
+    margin-bottom: 6px;
+}
+
+.node-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.node-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Node Positions - Radial arrangement */
+#node-about {
+    top: 12%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#node-about:hover {
+    transform: translateX(-50%) scale(1.15);
+}
+
+#node-skills {
+    top: 18%;
+    right: 22%;
+}
+
+#node-projects {
+    top: 50%;
+    right: 12%;
+    transform: translateY(-50%);
+}
+#node-projects:hover {
+    transform: translateY(-50%) scale(1.15);
+}
+
+#node-resume {
+    bottom: 18%;
+    right: 22%;
+}
+
+#node-github {
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#node-github:hover {
+    transform: translateX(-50%) scale(1.15);
+}
+
+#node-linkedin {
+    bottom: 18%;
+    left: 22%;
+}
+
+#node-contact {
+    top: 50%;
+    left: 12%;
+    transform: translateY(-50%);
+}
+#node-contact:hover {
+    transform: translateY(-50%) scale(1.15);
+}
+
+/* Modal Overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--modal-bg);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+    display: flex;
+    opacity: 1;
+}
+
+.modal {
+    background: var(--node-bg);
+    border: 2px solid var(--glow-color);
+    border-radius: 15px;
+    padding: 30px;
+    max-width: 800px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow:
+        0 0 30px var(--glow-color),
+        0 0 60px color-mix(in srgb, var(--glow-color) 30%, transparent);
+    animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+    from {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: var(--glow-color);
+    font-size: 30px;
+    cursor: pointer;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.modal-close:hover {
+    color: var(--text-bright);
+    transform: scale(1.2);
+}
+
+.modal-content {
+    color: var(--text-primary);
+}
+
+.modal-content h2 {
+    color: var(--glow-color);
+    margin-bottom: 20px;
+    font-size: 28px;
+    text-shadow: 0 0 10px var(--glow-color);
+}
+
+.modal-content p {
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+/* Skills Grid */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.skill-category {
+    background: color-mix(in srgb, var(--glow-color) 5%, transparent);
+    border: 1px solid var(--glow-dim);
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.skill-category h3 {
+    color: var(--glow-color);
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.skill-category ul {
+    list-style: none;
+}
+
+.skill-category li {
+    padding: 5px 0;
+    padding-left: 15px;
+    position: relative;
+}
+
+.skill-category li::before {
+    content: '>';
+    position: absolute;
+    left: 0;
+    color: var(--glow-color);
+}
+
+/* Projects Grid */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.project-card {
+    background: color-mix(in srgb, var(--glow-color) 5%, transparent);
+    border: 1px solid var(--glow-dim);
+    border-radius: 10px;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.project-card:hover {
+    border-color: var(--glow-color);
+    box-shadow: 0 0 20px color-mix(in srgb, var(--glow-color) 30%, transparent);
+}
+
+.project-card h3 {
+    color: var(--glow-color);
+    margin-bottom: 10px;
+}
+
+.project-card p {
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.project-card a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.project-card a:hover {
+    color: var(--glow-color);
+}
+
+.project-language {
+    display: inline-block;
+    background: color-mix(in srgb, var(--glow-color) 10%, transparent);
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+/* Loading Spinner */
+.loading {
+    text-align: center;
+    padding: 40px;
+}
+
+.loading::after {
+    content: '';
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border: 3px solid var(--glow-dim);
+    border-top-color: var(--glow-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .chip {
+        width: 150px;
+        height: 150px;
+    }
+
+    .chip-logo {
+        width: 105px;
+        height: 105px;
+    }
+
+    .node {
+        width: 78px;
+        height: 78px;
+    }
+
+    .node-icon {
+        width: 26px;
+        height: 26px;
+    }
+
+    .node-label {
+        font-size: 10px;
+    }
+
+    /* Adjust node positions for mobile */
+    #node-about { top: 8%; }
+    #node-skills { top: 15%; right: 10%; }
+    #node-projects { right: 5%; }
+    #node-resume { bottom: 15%; right: 10%; }
+    #node-github { bottom: 5%; }
+    #node-linkedin { bottom: 15%; left: 10%; }
+    #node-contact { left: 5%; }
+
+    .modal {
+        padding: 20px;
+        margin: 10px;
+    }
+
+    .modal-content h2 {
+        font-size: 22px;
+    }
+
+    .skills-grid,
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .chip {
+        width: 120px;
+        height: 120px;
+    }
+
+    .chip-logo {
+        width: 85px;
+        height: 85px;
+    }
+
+    .node {
+        width: 65px;
+        height: 65px;
+    }
+
+    .node-icon {
+        width: 24px;
+        height: 24px;
+        margin-bottom: 3px;
+    }
+
+    .node-label {
+        font-size: 9px;
+    }
+
+    /* Hide traces on very small screens for cleaner look */
+    .circuit-svg {
+        opacity: 0.5;
+    }
+}
+
+/* Scrollbar Styling */
+.modal::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+    border-radius: 4px;
+}
+
+.modal::-webkit-scrollbar-thumb {
+    background: var(--glow-dim);
+    border-radius: 4px;
+}
+
+.modal::-webkit-scrollbar-thumb:hover {
+    background: var(--glow-color);
+}
