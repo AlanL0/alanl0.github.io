@@ -24,7 +24,7 @@
 
 ## Education
 
-<span style="color: #f472b6; font-size: 1.1em; font-weight: 500;">B.S. Electrical Engineering</span> — UC Irvine, Digital Signal Processing
+<span style="color: #f472b6; font-size: 1.1em; font-weight: 500;">B.S. EECS (Electrical Engineering and Computer Science)</span> — <span style="color: #ffd700; font-size: 1.1em; font-weight: 500;">UC Irvine</span>, Digital Signal Processing
 
 ## Languages
 

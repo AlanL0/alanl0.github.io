@@ -368,9 +368,21 @@ body::before {
     text-shadow: 0 0 10px var(--glow-color);
 }
 
+.modal-content h3 {
+    color: var(--text-bright);
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-top: 28px;
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid color-mix(in srgb, var(--glow-color) 25%, transparent);
+}
+
 .modal-content p {
     line-height: 1.8;
-    margin-bottom: 15px;
+    margin-bottom: 14px;
 }
 
 /* Skills Cards Grid */
