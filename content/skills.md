@@ -2,55 +2,82 @@
 
 ## Programming Languages
 
+- **Java 21** - Backend microservices, Spring Boot, RTB systems
+- **Python** - Automation, scripting, AI/ML experimentation
 - **C/C++** - Image processing, operating systems, embedded development
-- **Java/Kotlin** - Android development, backend microservices, GStreamer API
-- **Python** - Automation, scripting, backend services
-- **TypeScript/JavaScript** - Web development, Node.js
-- **SQL** - Database queries and management
+- **TypeScript** - Full-stack development, React, Node.js
+- **SQL** - Database queries, schema design, optimization
 
 ## Backend & Cloud
 
-- **AWS** - EKS, cloud infrastructure
+- **Spring Boot** - RESTful microservices, enterprise applications
+- **Vert.x** - Reactive, high-performance applications
+- **REST APIs** - Design, implementation, versioning
+- **RTB Systems** - Bidding algorithms, revenue optimization
+- **Redis Pub/Sub** - Real-time cache invalidation
+- **Distributed Systems** - Cross-pod communication, Kubernetes orchestration
+
+## Infrastructure & DevOps
+
+- **Kubernetes** - Container orchestration, EKS deployments
 - **Docker** - Containerization, local development environments
-- **Kubernetes** - Container orchestration, microservices deployment
-- **Vert.x** - Reactive applications
-- **REST APIs** - Design and implementation
-- **HasuraDB** - Database migrations
+- **AWS** - EKS, RDS, S3, cloud infrastructure
+- **ArgoCD** - GitOps pipelines, continuous deployment
+- **CI/CD** - Pipeline design, automated testing, zero-downtime deployments
+- **Datadog** - Observability dashboards, monitoring, alerting
+- **PagerDuty** - Incident response, on-call management, alerting
+- **Incident Response** - On-call runbooks, production debugging
 
-## Databases & Caching
+## AI/ML & LLM
 
-- **MySQL** - Relational database management
-- **Redis** - In-memory caching
-- **PostgreSQL** - Database systems
+- **RAG Systems** - Design and implementation, vector search
+- **LLM Integration** - Ollama, Mistral, Grok, Claude APIs
+- **Agentic AI** - Multi-agent orchestration, autonomous workflows
+- **Prompt Engineering** - System prompts, few-shot learning
+- **Vector Databases** - ChromaDB, XAI Collections
+- **Embeddings** - Data ingestion pipelines, semantic search
+- **Hugging Face** - Open-source model deployment
+- **MCP** - Debugging, third-party integrations (Snowflake)
+- **LLM Evaluation** - LLM-as-judge methodology, guardrails
+- **OpenCV** - Real-time image processing, computer vision
 
-## DevOps & Tools
+## Frontend & Mobile
 
-- **Git/GitHub** - Version control, collaboration
-- **JIRA** - Project management, Agile/Scrum
-- **Datadog** - Monitoring and logging
-- **GNU Make** - Build automation
-- **CI/CD** - Continuous integration pipelines
+- **React** - Component architecture, hooks, state management
+- **React Native** - Expo, cross-platform mobile development
+- **Zustand** - Lightweight state management
+- **SVG Visualizations** - Interactive data visualizations
+- **HTML/CSS** - Responsive design, Tailwind CSS
+- **Android** - Java-based mobile applications
 
-## Computer Vision & ML
+## Data & Databases
 
-- **OpenCV** - Image processing, filtering algorithms
-- **TensorFlow** - Machine learning frameworks
-- **Image Processing** - SobelX, Median Blur, optic filters
+- **PostgreSQL** - Relational databases, query optimization
+- **Redis** - In-memory caching, pub/sub messaging
+- **Supabase** - Row-Level Security, real-time subscriptions
+- **MySQL** - Database management, migrations
+- **Finnhub API** - REST and WebSocket integration
+- **Real-time Pipelines** - Streaming data, rate limiting strategies
+
+## Testing & Code Quality
+
+- **Test-Driven Development** - TDD methodology
+- **Jest** - Unit and integration testing
+- **React Native Testing Library** - Component and UI testing
+- **Mocking** - Complex query builders, external services
+- **Code Review** - Multi-round auditing, best practices
+- **Performance Optimization** - Algorithm refactoring, profiling
+
+## AI-Augmented Development
+
+- **GitHub Copilot** - Claude Sonnet integration
+- **Coding Agents** - Architectural problem-solving
+- **LLM Validation** - Context building, code verification
 
 ## Embedded & Hardware
 
 - **Raspberry Pi** - IoT projects, biometrics systems
-- **Arduino** - Prototyping
+- **Arduino** - Prototyping, sensor integration
 - **Broadcom Processors** - Embedded systems
 - **UART/I2C** - Serial communication protocols
 - **Linux/Ubuntu** - System administration
-
-## Web Development
-
-- **HTML/CSS** - Frontend development
-- **Bootstrap** - Responsive web design
-- **JavaScript** - Interactive web applications
-
-## Mobile Development
-
-- **Android** - Java-based mobile applications

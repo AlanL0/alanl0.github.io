@@ -77,8 +77,8 @@ document.addEventListener('DOMContentLoaded', () => {
             // Unordered lists
             .replace(/^\- (.+)$/gm, '<li>$1</li>')
             .replace(/(<li>.*<\/li>\n?)+/g, '<ul>$&</ul>')
-            // Paragraphs (lines that aren't already wrapped)
-            .replace(/^(?!<[hula]|<li)(.+)$/gm, '<p>$1</p>')
+            // Paragraphs (lines that aren't already wrapped or start with HTML tags)
+            .replace(/^(?!<[hulas]|<li|<span|<div)(.+)$/gm, '<p>$1</p>')
             // Clean up empty paragraphs
             .replace(/<p>\s*<\/p>/g, '');
     }
