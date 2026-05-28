@@ -32,7 +32,7 @@ The previous ambitious circuit-board interactive concept (radial nodes + animate
 ## Content sources
 
 - `content/about.md` and `content/skills.md` (original)
-- Master Resume (PDF in `public/img/`)
+- Master Resume (PDF in `img/`)
 - Target positioning brief for AI Backend / Distributed Systems roles
 
 ## Contact

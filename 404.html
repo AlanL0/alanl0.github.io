@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Not Found • Alan Lo</title>
+  <meta http-equiv="refresh" content="0; url=/">
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0a1625;
+      color: #e2e8f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
+    .container {
+      max-width: 400px;
+      padding: 2rem;
+    }
+    h1 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: #67f6ff;
+    }
+    p {
+      color: #94a3b8;
+      margin-bottom: 1.5rem;
+    }
+    a {
+      color: #67f6ff;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Page not found</h1>
+    <p>Redirecting you to the homepage...</p>
+    <p><a href="/">Go to homepage manually</a></p>
+  </div>
+
+  <script>
+    // JavaScript redirect as fallback
+    setTimeout(() => {
+      window.location.href = '/';
+    }, 1500);
+  </script>
+</body>
+</html>
