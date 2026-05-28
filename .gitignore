@@ -12,6 +12,26 @@ dist
 dist-ssr
 *.local
 
+# ============================================
+# Grok / xAI Coding Agent artifacts
+# Only commit the actual website code
+# ============================================
+.grok/
+**/.grok/
+.grok-*
+grok-*.log
+
+# Grok session data and plans
+**/sessions/
+**/plan.md
+plan.md
+
+# Claude / other agent files (common in mixed environments)
+.claude/
+CLAUDE.md
+AGENTS.md
+.claude/**
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
