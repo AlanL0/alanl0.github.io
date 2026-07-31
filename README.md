@@ -1,42 +1,48 @@
-# Alan Lo — Portfolio
-
-**Backend Engineer Building Toward Production AI Systems**
+# Alan Lo - Portfolio
 
 Live site: [alanl0.github.io](https://alanl0.github.io)
 
-## What this site demonstrates
+## Positioning
 
-- Clear positioning as a senior backend/distributed systems engineer moving into AI infrastructure (RAG, agents, real-time AI systems, inference).
-- Quantified production impact from 6+ years at Weedmaps (RTB, Redis Pub/Sub cache invalidation at fleet scale) and DISH Network (media streaming, EKS).
-- Honest AI direction statement per the target roles (AI Backend, AI Infrastructure, GenAI/Agentic, Distributed Systems in Fintech/InsurTech).
-- **Live client-side semantic search demo** over real career data — a working retrieval system that proves practical RAG / semantic search thinking.
-- The entire site (research, architecture, content, implementation, review) was built iteratively with AI coding agents (Grok + Claude).
+Two signals only:
+
+1. **Ability to ship** production backend systems (ownership labeled honestly: solo / co-built / team).
+2. **Use AI effectively** — guardrails, retrieval, fallbacks, clear authority boundaries — without claiming production ML as a primary job function.
+
+## Site structure
+
+- Hero with the dual message
+- **Ship** — Weedmaps reliability + product + team platform work
+- **AI Proof** — ethStable (primary public project) + OpenClaw pipeline (deployed/extended, not authored) + short AI rules
+- **Experience** — compact, accurately attributed
+- Stack + AI learning as a thin strip (not a course wall)
+- Contact / resume
+
+## What was intentionally removed
+
+- Role-Fit Workbench (interesting demo, high cognitive load)
+- Long completed / in-progress course matrices
+- Kitchen-sink skills lists
+
+Prototype retained at `prototype/ai-backend-portfolio.html` for reference.
 
 ## Tech
 
-Self-contained static site (HTML + CSS + vanilla JS) for instant, reliable deployment on GitHub Pages. No heavy framework or build step required for the live version. The semantic search uses a high-quality scoring engine modeled on production retrieval patterns.
+Static GitHub Pages site:
 
-Circuit logo from v1 preserved as the primary brand mark.
+- `index.html`
+- `styles.css`
+- `script.js` (no required client logic)
+- assets in `img/`
 
-## Development
+## Local preview
 
 ```bash
-# Simple local preview (any static server)
 python -m http.server 8000
-# or
-npx serve .
 ```
 
-The previous ambitious circuit-board interactive concept (radial nodes + animated traces + modals) lives in `archive/` (if present) as reference. The current design prioritizes recruiter scannability, quantified achievements, and a signature interactive proof while keeping the distinctive logo.
-
-## Content sources
-
-- `content/about.md` and `content/skills.md` (original)
-- Master Resume (PDF in `img/`)
-- Target positioning brief for AI Backend / Distributed Systems roles
+Then open `http://localhost:8000`.
 
 ## Contact
 
-alomo@uci.edu • [LinkedIn](https://www.linkedin.com/in/alanlo2023/) • [GitHub](https://github.com/AlanL0)
-
-Open to AI Backend, AI Infrastructure, GenAI/Agentic Software Engineer, Real-Time AI Systems, and Distributed Systems (Fintech, InsurTech, Insurance Tech) roles. Long-term interest in robotics autonomy systems.
+alomo@uci.edu — [LinkedIn](https://www.linkedin.com/in/alanlo2023/) — [GitHub](https://github.com/AlanL0)

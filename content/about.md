@@ -1,31 +1,25 @@
 # About Me
 
-<span style="color: #00ffff; font-size: 1.3em; font-weight: 600;">Backend Software Engineer</span> building scalable distributed systems and AI-powered applications.
+Backend software engineer who ships production systems and uses AI with clear authority boundaries.
 
-## What I Do
+## Focus
 
-<span style="color: #ff6b6b; font-size: 1.1em; font-weight: 500;">Distributed Systems</span> — Real-time bidding platforms, Redis Pub/Sub, Kubernetes orchestration
+**Ship** — production features, reliability fixes, zero-downtime rollouts, observability, honest ownership labeling (solo / co-built / team).
 
-<span style="color: #a855f7; font-size: 1.1em; font-weight: 500;">AI/ML Engineering</span> — RAG systems, LLM integration, agentic workflows
-
-<span style="color: #4ade80; font-size: 1.1em; font-weight: 500;">Full-Stack Development</span> — React Native mobile apps, TypeScript, PostgreSQL
+**Practical AI** — guarded analysis, retrieval grounding, multi-agent pipelines on top of existing frameworks, cost-aware design. Production ML was not the primary job function.
 
 ## Experience
 
-<span style="color: #2dd4bf; font-size: 1.1em; font-weight: 500;">Weedmaps</span> — Ads Serving Platform, RTB systems, ArgoCD/Codefresh pipelines, zero-downtime deployments
+**Weedmaps** — Ad Marketplace: solo Redis Pub/Sub cache invalidation across 60 pods; co-built Sponsored Products Ads; team latency and platform work.
 
-<span style="color: #dc2626; font-size: 1.1em; font-weight: 500;">Dish Network</span> — Android Set-Top Box, Content Ingestion Engine, Kubernetes microservices, Live-TV & Video Streaming
+**Dish Network** — team contribution on Android STB migration, media pipelines, Kafka/Spring ingestion, ElasticSearch indexing.
 
-## Side Projects
+## Technical proof
 
-<span style="color: #38bdf8; font-size: 1.1em; font-weight: 500;">[OpenClaw Platform](https://openclaw.ai)</span> — Grok-powered automation with RAG document retrieval
+**ethStable Coin Simulator** — deterministic financial simulation with guarded AI analysis. Java owns math; AI narrates with guardrails and fallbacks.
 
-<span style="color: #38bdf8; font-size: 1.1em; font-weight: 500;">FinanceApp</span> — React Native + Supabase + Finnhub API + AI chatbot
-
-## Education
-
-<span style="color: #f472b6; font-size: 1.1em; font-weight: 500;">B.S. EECS (Electrical Engineering and Computer Science)</span> — <span style="color: #ffd700; font-size: 1.1em; font-weight: 500;">UC Irvine</span>, Digital Signal Processing
+**OpenClaw pipeline** — deployed OpenClaw and built a custom multi-agent research pipeline on top (not authorship of the framework).
 
 ## Languages
 
-<span style="color: #94a3b8;">English · Spanish · Cantonese (native) · Mandarin (limited)</span>
+English, Spanish, Cantonese, Mandarin.
