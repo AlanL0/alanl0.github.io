@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prototype | Alan Lo - AI Backend Portfolio</title>
+  <style>
+    :root {
+      --bg: #09090b;
+      --panel: #101114;
+      --panel-2: #17191d;
+      --line: rgba(255,255,255,.09);
+      --line-strong: rgba(255,255,255,.16);
+      --text: #f4f4f5;
+      --muted: #a1a1aa;
+      --faint: #71717a;
+      --accent: #34d399;
+      --accent-soft: rgba(52,211,153,.12);
+      --blue: #67e8f9;
+      --red: #fb7185;
+      --radius: 8px;
+      --shadow: 0 24px 70px rgba(0,0,0,.35);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background:
+        linear-gradient(180deg, #0b1110 0, #09090b 310px),
+        var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    button, input { font: inherit; }
+
+    .container { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid var(--line);
+      background: rgba(9,9,11,.88);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav-inner {
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+    }
+
+    .brand { display: flex; align-items: center; gap: 12px; min-width: 170px; }
+    .brand img { width: 34px; height: 34px; border-radius: 9px; }
+    .brand strong { display: block; font-size: 14px; }
+    .brand span { display: block; color: var(--faint); font-size: 11px; margin-top: -2px; }
+
+    .nav-links { display: flex; align-items: center; gap: 24px; color: var(--muted); font-size: 13px; }
+    .nav-links a:hover { color: var(--text); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 38px;
+      padding: 0 16px;
+      border: 1px solid var(--line-strong);
+      border-radius: 8px;
+      background: transparent;
+      color: var(--text);
+      cursor: pointer;
+      transition: border-color .15s, background .15s, color .15s;
+      white-space: nowrap;
+    }
+    .btn:hover { border-color: var(--accent); color: white; }
+    .btn-primary { background: var(--accent); color: #052e22; border-color: var(--accent); font-weight: 700; }
+    .btn-primary:hover { background: #86efac; color: #04110d; }
+
+    .hero { padding: 84px 0 54px; }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(320px, .92fr);
+      gap: 46px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent);
+      border: 1px solid rgba(52,211,153,.28);
+      background: var(--accent-soft);
+      border-radius: 999px;
+      padding: 5px 11px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 { letter-spacing: 0; line-height: 1.05; margin: 0; }
+    h1 { font-size: clamp(42px, 6vw, 72px); margin-top: 18px; max-width: 780px; }
+    h2 { font-size: clamp(30px, 4vw, 46px); }
+    h3 { font-size: 19px; }
+
+    .hero-copy { margin: 22px 0 0; max-width: 690px; color: var(--muted); font-size: 19px; }
+    .hero-actions { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 12px; }
+    .proof-stats {
+      margin-top: 36px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .stat {
+      border-top: 1px solid var(--line-strong);
+      padding-top: 13px;
+    }
+    .stat strong { display: block; font-size: 24px; line-height: 1.1; }
+    .stat span { color: var(--faint); font-size: 12px; }
+
+    .signal-panel {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.018));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--line);
+      padding: 16px;
+    }
+    .panel-header small { color: var(--faint); }
+    .mini-led { width: 8px; height: 8px; border-radius: 99px; background: var(--accent); box-shadow: 0 0 16px var(--accent); }
+    .signal-list { padding: 10px 16px 16px; }
+    .signal-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 18px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .signal-row:last-child { border-bottom: 0; }
+    .signal-row span { color: var(--muted); font-size: 13px; }
+    .signal-row strong { font-size: 14px; }
+    .signal-row code { color: var(--accent); font-size: 12px; }
+
+    .section { padding: 70px 0; }
+    .section-top {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 28px;
+      margin-bottom: 26px;
+    }
+    .section-kicker { color: var(--accent); text-transform: uppercase; letter-spacing: .12em; font-weight: 800; font-size: 12px; margin-bottom: 8px; }
+    .section-note { max-width: 560px; color: var(--muted); margin: 12px 0 0; }
+
+    .principles {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: rgba(255,255,255,.02);
+    }
+    .principle {
+      padding: 22px;
+      border-right: 1px solid var(--line);
+      min-height: 160px;
+    }
+    .principle:last-child { border-right: 0; }
+    .principle b { display: block; margin-bottom: 8px; }
+    .principle p { color: var(--muted); margin: 0; font-size: 13px; }
+
+    .proof-grid {
+      display: grid;
+      grid-template-columns: minmax(0, .95fr) minmax(420px, 1.05fr);
+      gap: 26px;
+      align-items: center;
+    }
+    .proof-copy {
+      border-left: 2px solid var(--accent);
+      padding-left: 24px;
+    }
+    .proof-copy p { color: var(--muted); }
+    .proof-list { display: grid; gap: 10px; margin: 20px 0 0; }
+    .proof-list div { display: flex; gap: 10px; color: var(--muted); font-size: 14px; }
+    .proof-list span { color: var(--accent); font-weight: 800; }
+    .screenshot-frame {
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius);
+      background: #050506;
+      padding: 10px;
+      box-shadow: var(--shadow);
+    }
+    .screenshot-frame img { border-radius: 6px; border: 1px solid rgba(255,255,255,.08); }
+
+    .architecture-sketch {
+      display: block;
+      margin-top: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.028);
+      padding: 24px;
+    }
+    .architecture-sketch h3 { margin-top: 6px; font-size: clamp(24px, 3vw, 34px); }
+    .architecture-sketch p { color: var(--muted); max-width: 760px; margin: 10px 0 0; font-size: 16px; }
+    .architecture-sketch .mermaid {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: 100%;
+      min-height: 620px;
+      margin: 22px 0 0;
+      overflow: auto;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #09090b;
+      color: var(--muted);
+      padding: 24px;
+      font-size: 14px;
+    }
+    .architecture-sketch .mermaid svg { width: min(100%, 980px) !important; max-width: 980px; height: auto; min-height: 560px; }
+
+    .workbench {
+      display: grid;
+      grid-template-columns: minmax(260px, .42fr) minmax(0, .58fr);
+      gap: 18px;
+    }
+    .control-panel, .results-panel, .experience-card, .course-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.028);
+    }
+    .control-panel, .results-panel { padding: 18px; }
+    .search-box {
+      width: 100%;
+      min-height: 48px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line-strong);
+      background: #0d0e11;
+      color: var(--text);
+      padding: 0 14px;
+      outline: none;
+    }
+    .search-box:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(52,211,153,.11); }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+    .chip {
+      border: 1px solid var(--line);
+      color: var(--muted);
+      background: transparent;
+      border-radius: 999px;
+      min-height: 31px;
+      padding: 0 11px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+    .chip:hover, .chip.active { border-color: var(--accent); color: var(--text); background: var(--accent-soft); }
+
+    .result {
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .result:last-child { border-bottom: 0; }
+    .result-top { display: flex; justify-content: space-between; gap: 18px; margin-bottom: 8px; }
+    .badge { font-size: 11px; border: 1px solid var(--line); color: var(--muted); border-radius: 999px; padding: 3px 8px; white-space: nowrap; }
+    .result p { margin: 6px 0 0; color: var(--muted); font-size: 14px; }
+    .why { color: var(--blue); font-size: 13px; margin-top: 9px; }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 11px; }
+    .tag { color: var(--faint); border: 1px solid var(--line); border-radius: 999px; font-size: 11px; padding: 2px 8px; }
+
+    .experience-list { display: grid; gap: 16px; }
+    .experience-card { padding: 22px; }
+    .experience-card header { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 12px; }
+    .experience-card small { color: var(--faint); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .bullets { display: grid; gap: 12px; color: var(--muted); }
+    .bullets div { border-top: 1px solid var(--line); padding-top: 12px; }
+
+    .courses {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .course-card { padding: 20px; }
+    .course-card ul { margin: 12px 0 0; padding: 0; list-style: none; display: grid; gap: 8px; color: var(--muted); }
+    .course-card li { display: flex; justify-content: space-between; gap: 12px; border-top: 1px solid var(--line); padding-top: 8px; }
+    .course-card span { color: var(--faint); font-size: 12px; white-space: nowrap; }
+
+    .footer {
+      border-top: 1px solid var(--line);
+      padding: 34px 0;
+      color: var(--faint);
+      font-size: 13px;
+    }
+
+    @media (max-width: 880px) {
+      .hero-grid, .proof-grid, .workbench, .architecture-sketch { grid-template-columns: 1fr; }
+      .principles, .courses { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .nav-links { display: none; }
+    }
+
+    @media (max-width: 580px) {
+      .container { width: min(100% - 28px, 1120px); }
+      .hero { padding-top: 54px; }
+      .proof-stats, .principles, .courses { grid-template-columns: 1fr; }
+      .principle { border-right: 0; border-bottom: 1px solid var(--line); }
+      .principle:last-child { border-bottom: 0; }
+      .section-top { display: block; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top" aria-label="Alan Lo homepage">
+        <img src="../img/logo2.png" alt="">
+        <span><strong>Alan Lo</strong><span>AI backend systems</span></span>
+      </a>
+      <div class="nav-links">
+        <a href="#proof">Technical Proof</a>
+        <a href="#workbench">Workbench</a>
+        <a href="#experience">Experience</a>
+        <a href="#courses">Courses</a>
+      </div>
+      <a class="btn btn-primary" href="../img/Master-Resume.pdf" target="_blank" rel="noreferrer">Resume</a>
+    </div>
+  </nav>
+
+  <main id="top">
+    <header class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">AI Backend / Infrastructure</div>
+          <h1>Backend Engineer for Reliable AI Systems</h1>
+          <p class="hero-copy">I bring production backend discipline to AI systems: latency, distributed consistency, guardrails, retrieval grounding, evals, fallbacks, and observability.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#workbench">Try Role-Fit Workbench</a>
+            <a class="btn" href="https://github.com/AlanL0/eth-stablecoin-simulator#readme" target="_blank" rel="noreferrer">Read GitHub README</a>
+            <a class="btn" href="mailto:alomo@uci.edu">Contact</a>
+          </div>
+          <div class="proof-stats" aria-label="Career proof points">
+            <div class="stat"><strong>6.5 yrs</strong><span>backend and distributed systems</span></div>
+            <div class="stat"><strong>&lt;30s</strong><span>cache propagation from a solo reliability fix</span></div>
+            <div class="stat"><strong>60 pods</strong><span>fleet-scale consistency problem solved</span></div>
+          </div>
+        </div>
+
+        <aside class="signal-panel" aria-label="AI backend signal summary">
+          <div class="panel-header">
+            <div>
+              <strong>Role signal map</strong><br>
+              <small>What the site should prove quickly</small>
+            </div>
+            <div class="mini-led" aria-hidden="true"></div>
+          </div>
+          <div class="signal-list">
+            <div class="signal-row"><div><strong>Production Systems</strong><br><span>low-latency services, zero-downtime deployments, observability</span></div><code>strong</code></div>
+            <div class="signal-row"><div><strong>AI Reliability</strong><br><span>least-authority tools, deterministic fallback, eval mindset</span></div><code>visible</code></div>
+            <div class="signal-row"><div><strong>Learning Velocity</strong><br><span>agents, RAG, inference, LangGraph, ML fundamentals</span></div><code>current</code></div>
+          </div>
+        </aside>
+      </div>
+    </header>
+
+    <section class="section" id="principles">
+      <div class="container">
+        <div class="section-top">
+          <div>
+            <div class="section-kicker">AI Systems Principles</div>
+            <h2>What I optimize for when AI enters the system.</h2>
+          </div>
+          <p class="section-note">The site should make the engineering judgment clear: AI is useful, but production systems still need authority boundaries, tests, rollback paths, and measured behavior.</p>
+        </div>
+        <div class="principles">
+          <div class="principle"><b>Deterministic authority</b><p>Keep critical business logic outside the model. Let AI explain and assist, not invent authoritative values.</p></div>
+          <div class="principle"><b>Least-privilege tools</b><p>Use bounded tool surfaces, explicit allowlists, budget limits, and safe fallbacks when model behavior is unsafe.</p></div>
+          <div class="principle"><b>Retrieval grounding</b><p>Make answers traceable to source evidence, with clear boundaries between facts, summaries, and recommendations.</p></div>
+          <div class="principle"><b>Regression evals</b><p>Turn prompt failures, guardrail bypasses, and integration bugs into permanent tests instead of tribal memory.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="proof">
+      <div class="container">
+        <div class="proof-grid">
+          <div class="proof-copy">
+            <div class="section-kicker">Technical Proof</div>
+            <h2>ethStable Coin Simulator</h2>
+            <p>A deterministic DeFi simulation system with guarded AI analysis. Java owns the financial math, the frontend renders backend-provided values, and AI output is constrained by provenance, guardrails, and fallback behavior.</p>
+            <div class="proof-list">
+              <div><span>01</span> Java-owned deterministic financial logic</div>
+              <div><span>02</span> AI narrative is guarded and non-authoritative</div>
+              <div><span>03</span> Frontend renders backend-provided values</div>
+              <div><span>04</span> Tests cover guardrails, precision, and fallback behavior</div>
+            </div>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="https://github.com/AlanL0/eth-stablecoin-simulator#readme" target="_blank" rel="noreferrer">Read GitHub README</a>
+            </div>
+          </div>
+          <div class="screenshot-frame">
+            <img src="../img/ethstable-proof.png" alt="ethStable Coin Simulator screenshot showing a stablecoin simulator and AI Research Lab panel">
+          </div>
+        </div>
+
+        <div class="architecture-sketch" aria-label="AI trust boundary architecture sketch">
+          <div>
+            <div class="section-kicker">Mermaid Architecture Sketch</div>
+            <h3>AI trust boundary</h3>
+            <p>The model can narrate, but financial authority stays with Java, guardrails, read-only tools, and deterministic fallback behavior.</p>
+          </div>
+          <pre class="mermaid">
+flowchart TB
+  User["Visitor asks for analysis"]
+  UI["Next.js UI<br/>rendering only"]
+  Agent["Java / Spring AI<br/>manual tool loop"]
+  Guards["Guardrails<br/>prompt injection<br/>secret redaction<br/>tool allowlist<br/>numeric authority"]
+  Tools["Read-only analytics tools<br/>simulation, charts, yields, ETH price"]
+  Engine["Java financial engine<br/>BigDecimal authority"]
+  Data["Postgres + finalized RPC reads<br/>provenance + stale/degraded state"]
+  LLM["LLM provider<br/>optional narrator"]
+  Fallback["Deterministic fallback<br/>no LLM key<br/>or guardrail failure"]
+  Response["Validated response<br/>numbers remain Java-owned"]
+
+  User --> UI
+  UI -->|"/backend/api/v1/agent/analyze"| Agent
+  Agent --> Guards
+  Guards --> Tools
+  Tools --> Engine
+  Engine --> Data
+  Agent -. optional call .-> LLM
+  LLM --> Guards
+  Guards --> Response
+  Guards -->|violation or unavailable model| Fallback
+  Fallback --> Response
+  Response --> UI
+
+  classDef system fill:#171a1f,stroke:#34d399,color:#f4f4f5,stroke-width:1px
+  classDef data fill:#0d0f12,stroke:#67e8f9,color:#f4f4f5,stroke-width:1px
+  classDef fallback fill:#171113,stroke:#fb7185,color:#f4f4f5,stroke-width:1px
+  class User,UI,Agent,Guards,Tools,Engine,Response system
+  class Data,LLM data
+  class Fallback fallback
+          </pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="workbench">
+      <div class="container">
+        <div class="section-top">
+          <div>
+            <div class="section-kicker">Role-Fit Workbench</div>
+            <h2>Search the evidence for AI backend roles.</h2>
+          </div>
+          <p class="section-note">This is a browser-side retrieval demo over curated public evidence from experience, skills, and coursework. It is intentionally not a live LLM.</p>
+        </div>
+        <div class="workbench">
+          <div class="control-panel">
+            <label for="role-search"><strong>Evidence query</strong></label>
+            <input id="role-search" class="search-box" type="search" value="agent guardrails" autocomplete="off" aria-describedby="workbench-help">
+            <p id="workbench-help" class="section-note">Try a target signal and inspect why it matters.</p>
+            <div class="chips" id="chips"></div>
+          </div>
+          <div class="results-panel" id="results" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section-top">
+          <div>
+            <div class="section-kicker">Experience</div>
+            <h2>Backend credibility, accurately attributed.</h2>
+          </div>
+        </div>
+        <div class="experience-list">
+          <article class="experience-card">
+            <header><div><h3>Backend Software Engineer - Weedmaps</h3><p class="section-note">Ad Marketplace platform, AWS EKS, Java, Spring Boot, Redis, OpenSearch, DataDog.</p></div><small>Aug 2023 - Feb 2026</small></header>
+            <div class="bullets">
+              <div><strong>Solo reliability achievement:</strong> proposed, designed, and delivered Redis Pub/Sub cache invalidation across a 60-pod fleet, replacing a 3-minute inconsistency window with propagation under 30 seconds.</div>
+              <div><strong>Co-implemented product systems:</strong> wrote the TRD and co-implemented Sponsored Products Ads with one senior engineer, including new targeting dimensions and production rollout with zero downtime.</div>
+              <div><strong>Team latency contribution:</strong> contributed to broader ad decisioning latency improvements from 500ms to 10ms over time, without claiming sole ownership.</div>
+            </div>
+          </article>
+          <article class="experience-card">
+            <header><div><h3>Software Engineer - Dish Network</h3><p class="section-note">Media platform, Android STB migration, Kafka/Spring ingestion, GStreamer, MPEG-DASH.</p></div><small>Jun 2019 - Jul 2023</small></header>
+            <div class="bullets">
+              <div><strong>Team-based platform work:</strong> contributed to a greenfield migration from legacy set-top box hardware to Android-based devices.</div>
+              <div><strong>Real-time media systems:</strong> implemented encode/decode and ad insertion pipeline work using FFmpeg, GStreamer, MPEG-DASH, and Gracenote metadata.</div>
+              <div><strong>Data ingestion:</strong> contributed to Kafka and Spring Boot metadata ingestion pipelines and ElasticSearch indexing for partner content.</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="courses">
+      <div class="container">
+        <div class="section-top">
+          <div>
+            <div class="section-kicker">AI Learning Matrix</div>
+            <h2>Coursework supports the direction. Shipped systems carry the proof.</h2>
+          </div>
+        </div>
+        <div class="courses">
+          <article class="course-card">
+            <h3>Completed</h3>
+            <ul>
+              <li>Agentic AI <span>DeepLearning.AI</span></li>
+              <li>AI Agents in LangGraph <span>LangChain</span></li>
+              <li>Agentic Knowledge Graph Construction <span>Neo4j</span></li>
+              <li>Evaluating and Debugging Generative AI <span>W&amp;B</span></li>
+              <li>Fast LLM Inference <span>Cerebras</span></li>
+              <li>Building Coding Agents with Tool Execution <span>E2B</span></li>
+            </ul>
+          </article>
+          <article class="course-card">
+            <h3>In progress</h3>
+            <ul>
+              <li>Machine Learning Specialization <span>Stanford / DeepLearning.AI</span></li>
+              <li>Machine Learning in Production <span>DeepLearning.AI</span></li>
+              <li>PyTorch for Deep Learning <span>DeepLearning.AI</span></li>
+              <li>TensorFlow Developer Professional Certificate <span>DeepLearning.AI</span></li>
+              <li>AI Prompting for Everyone <span>DeepLearning.AI</span></li>
+              <li>LLMs as Operating Systems: Agent Memory <span>Letta</span></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">Prototype for alanl0.github.io refactor. Public positioning: AI Backend / AI Infrastructure.</div>
+  </footer>
+
+  <script>
+    const corpus = [
+      {
+        title: 'Guarded AI analysis with deterministic authority',
+        source: 'Technical proof',
+        body: 'A project screenshot and README can show Java-owned financial logic, non-authoritative AI narration, provenance, fallback behavior, and guardrail tests.',
+        why: 'AI backend roles need engineers who know where model authority ends and system authority begins.',
+        tags: ['agent guardrails', 'fallbacks', 'deterministic systems', 'evals', 'Java']
+      },
+      {
+        title: 'Redis Pub/Sub cache invalidation across 60 pods',
+        source: 'Weedmaps',
+        body: 'Independently proposed, designed, and delivered cache invalidation that replaced a 3-minute inconsistency window with under-30-second propagation.',
+        why: 'Distributed consistency and graceful fallback design transfer directly to retrieval caches, tool state, and AI serving infrastructure.',
+        tags: ['distributed systems', 'cache', 'Redis', 'observability', 'latency']
+      },
+      {
+        title: 'Production rollout and observability discipline',
+        source: 'Weedmaps',
+        body: 'Shipped zero-downtime changes, added DataDog metrics, validated under load, and retained the old scheduled rebuild path behind a feature flag.',
+        why: 'AI systems need the same release discipline: rollback paths, instrumentation, and measured behavior under failure.',
+        tags: ['observability', 'fallbacks', 'DataDog', 'zero downtime', 'reliability']
+      },
+      {
+        title: 'RAG, agents, graph AI, and LLM evaluation coursework',
+        source: 'Courses',
+        body: 'Completed or active courses cover Agentic AI, LangGraph agents, graph-based AI agents, LLM inference, AI code review, and generative AI evaluation.',
+        why: 'The learning path matches AI backend work while staying honest that production ML was not the primary job function.',
+        tags: ['RAG', 'agents', 'LangGraph', 'LLM evaluation', 'inference']
+      },
+      {
+        title: 'Team-based low-latency ad decisioning work',
+        source: 'Weedmaps',
+        body: 'Contributed to broader ad decisioning latency improvement from 500ms to 10ms over time on a high-throughput platform.',
+        why: 'Inference, retrieval, and agent orchestration all benefit from engineers who can reason about latency budgets in production.',
+        tags: ['low latency', 'production systems', 'Java', 'OpenSearch', 'Redis']
+      },
+      {
+        title: 'Streaming and ingestion pipelines',
+        source: 'Dish Network',
+        body: 'Contributed to media platform migration, GStreamer ad insertion, FFmpeg/MPEG-DASH pipelines, Kafka ingestion, and ElasticSearch indexing.',
+        why: 'AI backend infrastructure often looks like real-time data movement, indexing, and serving under operational constraints.',
+        tags: ['data pipelines', 'Kafka', 'ElasticSearch', 'streaming', 'distributed systems']
+      }
+    ];
+
+    const examples = ['agent guardrails', 'RAG', 'low latency', 'observability', 'evals', 'distributed systems'];
+    const chips = document.getElementById('chips');
+    const input = document.getElementById('role-search');
+    const results = document.getElementById('results');
+
+    function score(item, query) {
+      const q = query.toLowerCase().trim();
+      const haystack = [item.title, item.source, item.body, item.why, item.tags.join(' ')].join(' ').toLowerCase();
+      if (!q) return 0;
+      let value = haystack.includes(q) ? 60 : 0;
+      q.split(/\s+/).forEach(word => {
+        if (haystack.includes(word)) value += 18;
+        if (item.tags.some(tag => tag.toLowerCase().includes(word))) value += 14;
+      });
+      return Math.min(value, 100);
+    }
+
+    function render(query) {
+      [...chips.children].forEach(chip => chip.classList.toggle('active', chip.textContent.toLowerCase() === query.toLowerCase()));
+      const matches = corpus
+        .map(item => ({ ...item, score: score(item, query) }))
+        .filter(item => item.score > 16)
+        .sort((a, b) => b.score - a.score)
+        .slice(0, 4);
+
+      if (!matches.length) {
+        results.innerHTML = '<p class="section-note">No strong match. Try guardrails, RAG, latency, observability, evals, or distributed systems.</p>';
+        return;
+      }
+
+      results.innerHTML = matches.map(item => `
+        <article class="result">
+          <div class="result-top">
+            <div><strong>${item.title}</strong><p>${item.body}</p></div>
+            <span class="badge">${item.source} - ${item.score}%</span>
+          </div>
+          <div class="why">${item.why}</div>
+          <div class="tag-row">${item.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}</div>
+        </article>
+      `).join('');
+    }
+
+    examples.forEach(label => {
+      const button = document.createElement('button');
+      button.className = 'chip';
+      button.type = 'button';
+      button.textContent = label;
+      button.addEventListener('click', () => {
+        input.value = label;
+        render(label);
+      });
+      chips.appendChild(button);
+    });
+
+    input.addEventListener('input', () => render(input.value));
+    render(input.value);
+  </script>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'dark',
+      securityLevel: 'strict',
+      flowchart: {
+        useMaxWidth: true,
+        htmlLabels: true,
+        nodeSpacing: 70,
+        rankSpacing: 72,
+        curve: 'basis'
+      },
+      themeVariables: {
+        background: '#111317',
+        mainBkg: '#171a1f',
+        primaryColor: '#171a1f',
+        primaryTextColor: '#f4f4f5',
+        primaryBorderColor: 'rgba(255,255,255,.16)',
+        lineColor: '#34d399',
+        secondaryColor: '#0d0f12',
+        tertiaryColor: '#09090b',
+        fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif',
+        fontSize: '18px'
+      }
+    });
+  </script>
+</body>
+</html>

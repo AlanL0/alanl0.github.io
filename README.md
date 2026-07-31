@@ -1,42 +1,60 @@
-# Alan Lo — Portfolio
-
-**Backend Engineer Building Toward Production AI Systems**
+# Alan Lo - Portfolio
 
 Live site: [alanl0.github.io](https://alanl0.github.io)
 
-## What this site demonstrates
+## Positioning
 
-- Clear positioning as a senior backend/distributed systems engineer moving into AI infrastructure (RAG, agents, real-time AI systems, inference).
-- Quantified production impact from 6+ years at Weedmaps (RTB, Redis Pub/Sub cache invalidation at fleet scale) and DISH Network (media streaming, EKS).
-- Honest AI direction statement per the target roles (AI Backend, AI Infrastructure, GenAI/Agentic, Distributed Systems in Fintech/InsurTech).
-- **Live client-side semantic search demo** over real career data — a working retrieval system that proves practical RAG / semantic search thinking.
-- The entire site (research, architecture, content, implementation, review) was built iteratively with AI coding agents (Grok + Claude).
+AI Backend / Platform Engineer with production backend credibility.
 
-## Tech
+Two signals:
 
-Self-contained static site (HTML + CSS + vanilla JS) for instant, reliable deployment on GitHub Pages. No heavy framework or build step required for the live version. The semantic search uses a high-quality scoring engine modeled on production retrieval patterns.
+1. **Ability to ship** production backend systems (ownership labeled honestly: solo / co-built / team).
+2. **Disciplined AI integration** — guardrails, retrieval, fallbacks, clear authority boundaries — without claiming production ML as a primary job function.
 
-Circuit logo from v1 preserved as the primary brand mark.
+## Site structure
 
-## Development
+- Hero: role-explicit CTA path (case study, selected work, resume)
+- **Selected work** — Weedmaps reliability + product, Dish media/platform contribution
+- **AI Proof / case study** — ethStable trust-boundary story on-page (screenshot, architecture, engineering decisions)
+- **Experience** — compact employment timeline
+- Stack + AI tooling strip
+- Contact / resume
+
+## Client scripts
+
+Static GitHub Pages site with light progressive enhancement:
+
+- `index.html` / `styles.css` — core layout and content
+- `nav.js` — mobile menu only (classic script, no network dependency)
+- `script.js` — optional Mermaid diagram upgrade via CDN (10s timeout); never required for a complete page
+- assets in `img/`
+
+### Degradation contract
+
+The architecture section is **default-safe**:
+
+1. Resting state (no JS, CDN blocked, hang, or timeout): text trust-boundary summary is visible.
+2. Successful Mermaid render: JS adds `diagram-ready` and upgrades to the SVG.
+3. Mobile menu never depends on the Mermaid module graph (`nav.js` is a classic script).
+
+This matches the page’s own pattern: deterministic fallback protects the core workflow; optional enhancement must not leave a blank panel.
+
+## What was intentionally removed
+
+- Role-Fit Workbench
+- Long course matrices / kitchen-sink skills lists
+- Live links to private repositories (restore when public)
+
+Prototype retained at `prototype/ai-backend-portfolio.html` for reference.
+
+## Local preview
 
 ```bash
-# Simple local preview (any static server)
 python -m http.server 8000
-# or
-npx serve .
 ```
 
-The previous ambitious circuit-board interactive concept (radial nodes + animated traces + modals) lives in `archive/` (if present) as reference. The current design prioritizes recruiter scannability, quantified achievements, and a signature interactive proof while keeping the distinctive logo.
-
-## Content sources
-
-- `content/about.md` and `content/skills.md` (original)
-- Master Resume (PDF in `img/`)
-- Target positioning brief for AI Backend / Distributed Systems roles
+Then open `http://localhost:8000`.
 
 ## Contact
 
-alomo@uci.edu • [LinkedIn](https://www.linkedin.com/in/alanlo2023/) • [GitHub](https://github.com/AlanL0)
-
-Open to AI Backend, AI Infrastructure, GenAI/Agentic Software Engineer, Real-Time AI Systems, and Distributed Systems (Fintech, InsurTech, Insurance Tech) roles. Long-term interest in robotics autonomy systems.
+alomo@uci.edu — [LinkedIn](https://www.linkedin.com/in/alanlo2023/) — [GitHub](https://github.com/AlanL0)
