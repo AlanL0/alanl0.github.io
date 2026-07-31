@@ -538,6 +538,7 @@ p {
   font-size: 14px;
 }
 
+/* Hidden by default so no blank limbo / raw source. Visible while rendering so Mermaid can measure. */
 .architecture-sketch pre.mermaid {
   display: none;
   align-items: center;
@@ -555,12 +556,19 @@ p {
   font-size: 14px;
 }
 
-.architecture-sketch.diagram-ready .diagram-fallback {
-  display: none;
-}
-
+.architecture-sketch.diagram-rendering pre.mermaid,
 .architecture-sketch.diagram-ready pre.mermaid {
   display: flex;
+}
+
+/* Hide raw Mermaid text during the short measurement window. */
+.architecture-sketch.diagram-rendering pre.mermaid {
+  color: transparent;
+}
+
+/* Keep the text summary until SVG is confirmed ready. */
+.architecture-sketch.diagram-ready .diagram-fallback {
+  display: none;
 }
 
 .architecture-sketch .mermaid svg {
@@ -568,6 +576,18 @@ p {
   max-width: 980px;
   height: auto;
   min-height: 200px;
+}
+
+@media (max-width: 720px) {
+  /* Keep labels readable on phones: natural size + horizontal scroll.
+     flex-shrink must be 0 — width alone is ignored when pre is display:flex. */
+  .architecture-sketch .mermaid svg {
+    width: 1284px !important;
+    max-width: none;
+    min-width: 1284px;
+    min-height: 0;
+    flex-shrink: 0;
+  }
 }
 
 .diagram-note {

@@ -26,7 +26,7 @@ Static GitHub Pages site with light progressive enhancement:
 
 - `index.html` / `styles.css` — core layout and content
 - `nav.js` — mobile menu only (classic script, no network dependency)
-- `script.js` — optional Mermaid diagram upgrade via CDN (6s timeout); never required for a complete page
+- `script.js` — optional Mermaid diagram upgrade via CDN (10s timeout); never required for a complete page
 - assets in `img/`
 
 ### Degradation contract

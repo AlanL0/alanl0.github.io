@@ -1,6 +1,6 @@
 const MERMAID_CDN =
   'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
-const MERMAID_TIMEOUT_MS = 6000;
+const MERMAID_TIMEOUT_MS = 10000;
 
 function withTimeout(promise, ms) {
   return new Promise((resolve, reject) => {
@@ -55,13 +55,26 @@ async function initArchitectureDiagram() {
       }
     });
 
+    // Mermaid cannot layout nodes that are display:none. Unhide for measurement
+    // while keeping the text fallback visible until render succeeds.
     source.hidden = false;
+    sketch.classList.add('diagram-rendering');
+
+    // Allow layout to apply before measuring.
+    await new Promise((resolve) => requestAnimationFrame(() => resolve()));
+
     await withTimeout(mermaid.run({ nodes: [source] }), MERMAID_TIMEOUT_MS);
+
+    if (!source.querySelector('svg')) {
+      throw new Error('Mermaid produced no SVG');
+    }
+
+    sketch.classList.remove('diagram-rendering');
     sketch.classList.add('diagram-ready');
-  } catch {
-    // Keep the default text summary visible. Do not leave a blank panel.
+  } catch (error) {
+    console.warn('Architecture diagram unavailable; keeping text fallback.', error);
+    sketch.classList.remove('diagram-rendering', 'diagram-ready');
     source.hidden = true;
-    sketch.classList.remove('diagram-ready');
   }
 }
 
