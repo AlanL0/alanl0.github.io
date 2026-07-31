@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Alan Lo | Production Backend &amp; Disciplined AI Integration</title>
-  <meta name="description" content="Backend engineer with 6.5 years of production experience in distributed systems. Builds AI features with guardrails, fallbacks, and clear authority boundaries.">
+  <title>Alan Lo | AI Backend / Platform Engineer</title>
+  <meta name="description" content="Backend engineer with 6.5 years shipping distributed systems. Builds reliable AI systems with guardrails, retrieval grounding, deterministic fallbacks, and clear authority boundaries.">
   <link rel="icon" type="image/png" href="img/favicon-32x32.png">
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -15,18 +15,23 @@
         <img src="img/logo2.png" alt="">
         <span>
           <strong>Alan Lo</strong>
-          <small>Backend · AI systems</small>
+          <small>AI Backend / Platform</small>
         </span>
       </a>
 
-      <div class="nav-links">
+      <div class="nav-links" id="primary-nav">
         <a href="#work">Work</a>
-        <a href="#proof">Projects</a>
+        <a href="#proof">Case Study</a>
         <a href="#experience">Experience</a>
-        <a href="#contact">Contact</a>
+        <a href="https://github.com/AlanL0" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/alanlo2023/" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a href="mailto:alomo@uci.edu">Contact</a>
       </div>
 
-      <a class="btn btn-primary" href="img/Master-Resume.pdf" target="_blank" rel="noreferrer">Resume</a>
+      <div class="nav-end">
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+        <a class="btn btn-primary" href="img/Master-Resume.pdf" target="_blank" rel="noreferrer">Resume</a>
+      </div>
     </div>
   </nav>
 
@@ -34,17 +39,17 @@
     <header class="hero">
       <div class="container hero-grid">
         <section class="hero-copy-block" aria-labelledby="hero-title">
-          <div class="eyebrow">Production backend · Practical AI</div>
-          <h1 id="hero-title">Production backend systems. Disciplined AI integration.</h1>
+          <div class="eyebrow">AI Backend / Platform Engineer</div>
+          <h1 id="hero-title">Backend engineer building reliable AI systems.</h1>
           <p class="hero-copy">
-            Backend engineer with 6.5 years of production experience. I deliver features with clear ownership,
-            rollback paths, and measured behavior — and apply the same standards when AI is part of the system.
+            6.5 years shipping distributed backend systems. I bring production discipline to AI:
+            guardrails, retrieval grounding, deterministic fallbacks, observability, and clear authority boundaries.
           </p>
 
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#work">Selected work</a>
-            <a class="btn" href="#proof">Technical projects</a>
-            <a class="btn" href="mailto:alomo@uci.edu">Contact</a>
+            <a class="btn btn-primary" href="#proof">Read AI Systems Case Study</a>
+            <a class="btn" href="#work">Selected work</a>
+            <a class="btn" href="img/Master-Resume.pdf" target="_blank" rel="noreferrer">Resume</a>
           </div>
 
           <dl class="proof-stats" aria-label="Career proof points">
@@ -57,8 +62,8 @@
               <dd>cache propagation from a solo reliability fix</dd>
             </div>
             <div>
-              <dt>Zero downtime</dt>
-              <dd>production rollouts with fallback paths</dd>
+              <dt>Rollback-ready</dt>
+              <dd>feature-flagged production rollouts</dd>
             </div>
           </dl>
         </section>
@@ -82,8 +87,8 @@
             </div>
             <div class="signal-row">
               <div>
-                <strong>AI system design</strong>
-                <span>Guardrails, retrieval, non-authoritative AI, cost-aware agents</span>
+                <strong>Reliable AI systems</strong>
+                <span>Guardrails, retrieval grounding, deterministic fallbacks, authority boundaries</span>
               </div>
               <code>active</code>
             </div>
@@ -151,7 +156,8 @@
             <p>
               Contributed to a greenfield Android set-top box migration, real-time media pipelines
               (FFmpeg, GStreamer, MPEG-DASH), Kafka/Spring metadata ingestion, and ElasticSearch indexing
-              for partner content.
+              for partner content. This work shows comfort with real-time pipelines, partner metadata
+              ingestion, and production media infrastructure where correctness and availability matter.
             </p>
             <div class="tag-row">
               <span class="tag">Kafka</span>
@@ -172,34 +178,40 @@
             <h2>AI where it helps. Authority where it belongs.</h2>
           </div>
           <p>
-            Production ML was not my primary job function. These projects show backend discipline applied to
-            AI features: clear boundaries, fallbacks, and evidence-backed outputs.
+            My production background is backend and distributed systems. These projects show how I apply that
+            discipline to AI features: clear authority boundaries, fallbacks, and evidence-backed outputs.
           </p>
         </div>
 
         <div class="proof-grid">
           <div class="proof-copy">
-            <div class="ownership">Primary project · public</div>
+            <div class="ownership">Primary project · case study on this page</div>
             <h3>ethStable Coin Simulator</h3>
-            <p>
-              Deterministic DeFi simulation with guarded AI analysis. Java owns the financial math. The frontend
-              only renders backend-provided values. AI narrates with provenance, guardrails, and fallback behavior —
-              it does not invent authoritative numbers.
-            </p>
+            <ul class="compact-list proof-summary">
+              <li><strong>Problem</strong> — AI can explain financial scenarios, but must not invent or alter authoritative numbers.</li>
+              <li><strong>Architecture</strong> — Java/Spring owns BigDecimal simulation, read-only AI tools, numeric validation, and deterministic fallback.</li>
+              <li><strong>Outcome</strong> — The UI renders backend-provided values while AI narration remains guarded, provenance-backed, and non-authoritative.</li>
+            </ul>
 
             <ol class="proof-list">
               <li><span>01</span> Deterministic logic stays outside the model</li>
               <li><span>02</span> AI output is guarded and non-authoritative</li>
               <li><span>03</span> Frontend renders backend-provided values only</li>
-              <li><span>04</span> Tests cover guardrails, precision, and fallbacks</li>
+              <li><span>04</span> Guardrails, precision, and fallbacks are covered by automated tests</li>
             </ol>
 
-            <a class="btn btn-primary" href="https://github.com/AlanL0/eth-stablecoin-simulator#readme" target="_blank" rel="noreferrer">GitHub README</a>
+            <ul class="compact-list proof-summary">
+              <li>
+                <strong>Verification</strong> — 80+ Java test classes plus frontend unit/e2e coverage, including dedicated suites for
+                <code>PromptInjectionGuard</code>, <code>SecretRedactionService</code>, <code>NumericAuthorityValidator</code>,
+                <code>GuardedToolCallingManager</code>, adversarial regression corpus, BigDecimal/chart contracts, and agent fallback paths.
+              </li>
+            </ul>
           </div>
 
           <figure class="screenshot-frame">
             <img src="img/ethstable-proof.png" alt="ethStable Coin Simulator interface with stablecoin simulation and AI Research Lab panel">
-            <figcaption>Public technical evidence for architecture and product surface.</figcaption>
+            <figcaption>Architecture surface: simulator + guarded AI analysis panel.</figcaption>
           </figure>
         </div>
 
@@ -208,73 +220,66 @@
             <div class="section-kicker">Architecture</div>
             <h3>AI trust boundary</h3>
             <p>
-              The model can narrate; financial authority stays with Java, guardrails, read-only tools,
-              and deterministic fallback behavior.
+              High-level trust boundary: the UI renders, Java owns authoritative values, AI can narrate only
+              after validation, and deterministic fallback protects the core workflow.
             </p>
           </div>
-          <pre class="mermaid">
-flowchart TB
-  User["Visitor asks for analysis"]
-  UI["Next.js UI<br/>rendering only"]
-  Agent["Java / Spring AI<br/>manual tool loop"]
-  Guards["Guardrails<br/>prompt injection<br/>secret redaction<br/>tool allowlist<br/>numeric authority"]
-  Tools["Read-only analytics tools<br/>simulation, charts, yields, ETH price"]
-  Engine["Java financial engine<br/>BigDecimal authority"]
-  Data["Postgres + finalized RPC reads<br/>provenance + stale/degraded state"]
-  LLM["LLM provider<br/>optional narrator"]
-  Fallback["Deterministic fallback<br/>no LLM key<br/>or guardrail failure"]
-  Response["Validated response<br/>numbers remain Java-owned"]
+
+          <!-- Default-safe summary: visible with no JS, CDN hang, or import failure. JS upgrades to SVG. -->
+          <div class="diagram-fallback">
+            <strong>Trust boundary (text summary)</strong>
+            <p>
+              UI renders only. Java owns authoritative values. AI narrates after validation.
+              Deterministic fallback protects the core workflow when the model path is unavailable or rejected.
+            </p>
+          </div>
+
+          <pre class="mermaid" hidden>
+flowchart LR
+  User["User / Request"]
+  UI["Rendering-only UI"]
+  Backend["Java Backend<br/>System of Record"]
+  AI["AI Narration Layer<br/>Optional"]
+  Guardrails["Guardrails + Validation"]
+  Data["Trusted Data Sources"]
+  Fallback["Deterministic Fallback"]
 
   User --> UI
-  UI -->|"/backend/api/v1/agent/analyze"| Agent
-  Agent --> Guards
-  Guards --> Tools
-  Tools --> Engine
-  Engine --> Data
-  Agent -. optional call .-> LLM
-  LLM --> Guards
-  Guards --> Response
-  Guards -->|violation or unavailable model| Fallback
-  Fallback --> Response
-  Response --> UI
+  UI --> Backend
+  Backend --> Data
+  Backend --> AI
+  AI --> Guardrails
+  Guardrails --> UI
+  Backend --> Fallback
+  Fallback --> UI
 
   classDef system fill:#171a1f,stroke:#34d399,color:#f4f4f5,stroke-width:1px
   classDef data fill:#0d0f12,stroke:#67e8f9,color:#f4f4f5,stroke-width:1px
   classDef fallback fill:#171113,stroke:#fb7185,color:#f4f4f5,stroke-width:1px
-  class User,UI,Agent,Guards,Tools,Engine,Response system
-  class Data,LLM data
+  class User,UI,Backend,AI,Guardrails system
+  class Data data
   class Fallback fallback
           </pre>
+          <p class="diagram-note">
+            Implementation detail lives in the project source: guardrail package, adversarial regression suites,
+            chart contracts, and Docker smoke paths. Source available on request.
+          </p>
+
+          <div class="hero-actions proof-actions">
+            <a class="btn" href="mailto:alomo@uci.edu?subject=ethStable%20source%20request">Request source access</a>
+          </div>
         </div>
 
-        <div class="secondary-projects">
-          <article class="pillar-card">
-            <div class="ownership">Personal · infrastructure</div>
-            <h3>OpenClaw multi-agent research pipeline</h3>
-            <p>
-              Deployed OpenClaw, an open-source agent framework, on AWS EC2 and built a custom multi-agent
-              research pipeline on top — SEC filings, HubSpot, and government trading records into a RAG workflow
-              under a deliberate low-cost compute budget. Deployed and extended the framework; did not author it.
-            </p>
-            <div class="tag-row">
-              <span class="tag">RAG</span>
-              <span class="tag">multi-agent</span>
-              <span class="tag">AWS EC2</span>
-              <span class="tag">cost-aware design</span>
-            </div>
-          </article>
-
-          <article class="pillar-card">
-            <div class="ownership">Operating principles</div>
-            <h3>When models touch production-shaped systems</h3>
-            <ul class="compact-list">
-              <li><strong>Deterministic authority</strong> — models assist; critical values come from code and data.</li>
-              <li><strong>Least-privilege tools</strong> — allowlists, budgets, and safe fallbacks.</li>
-              <li><strong>Retrieval grounding</strong> — answers point at evidence, not free-floating claims.</li>
-              <li><strong>Release discipline</strong> — feature flags, tests, and instrumentation ship with the feature.</li>
-            </ul>
-          </article>
-        </div>
+        <article class="pillar-card decisions-card">
+          <div class="ownership">Engineering decisions</div>
+          <h3>Why the architecture is shaped this way</h3>
+          <ul class="compact-list">
+            <li><strong>Java owns financial math</strong> — avoids model-side or client-side numeric authority.</li>
+            <li><strong>Validated AI path</strong> — narration is optional and must pass guardrails before it reaches the UI.</li>
+            <li><strong>Deterministic fallback</strong> — model failure or validation failure does not break the core workflow.</li>
+            <li><strong>Regression-first guardrails</strong> — unsafe prompts, tool abuse, and numeric hallucination become tests.</li>
+          </ul>
+        </article>
       </div>
     </section>
 
@@ -340,8 +345,9 @@ flowchart TB
             <p class="stack-line">Java · Spring Boot · AWS (EKS, EC2) · Redis · OpenSearch · Kafka · DataDog · Docker · Kubernetes</p>
           </div>
           <div>
-            <div class="section-kicker">AI learning</div>
-            <p class="stack-line">Agentic AI · LangGraph · RAG · LLM evaluation · Fast inference · ML fundamentals (in progress)</p>
+            <div class="section-kicker">AI tooling</div>
+            <p class="stack-line">Agentic systems · LangGraph · RAG · LLM evaluation · Fast inference · production-shaped guardrails</p>
+            <p class="stack-line training-line">Recent AI training: Agentic AI, LangGraph agents, LLM evals, fast inference</p>
           </div>
         </div>
       </div>
@@ -365,11 +371,12 @@ flowchart TB
 
   <footer class="footer">
     <div class="container footer-inner">
-      <span>Alan Lo — production backend systems, disciplined AI integration</span>
+      <span>Alan Lo — AI Backend / Platform Engineer</span>
       <span>alomo@uci.edu</span>
     </div>
   </footer>
 
+  <script src="nav.js" defer></script>
   <script type="module" src="script.js"></script>
 </body>
 </html>

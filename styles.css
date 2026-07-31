@@ -124,6 +124,12 @@ p {
   font-size: 11px;
 }
 
+.nav-end {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .nav-links {
   display: flex;
   align-items: center;
@@ -140,6 +146,29 @@ p {
 .nav-links a:hover {
   color: var(--text);
   border-color: var(--accent);
+}
+
+.nav-toggle {
+  display: none;
+  min-height: 38px;
+  padding: 0 12px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  font-weight: 650;
+}
+
+.nav-toggle:hover,
+.nav-toggle:focus-visible {
+  border-color: var(--accent);
+  outline: none;
+}
+
+.proof-summary code {
+  color: var(--accent);
+  font-size: 12px;
 }
 
 .btn {
@@ -402,8 +431,20 @@ p {
   margin: 12px 0 0;
 }
 
-.proof-copy .btn {
+.proof-actions {
   margin-top: 24px;
+}
+
+.proof-summary {
+  margin-top: 14px;
+}
+
+.boundary-notes {
+  margin-top: 18px;
+}
+
+.decisions-card {
+  margin-top: 22px;
 }
 
 .proof-list {
@@ -472,13 +513,38 @@ p {
   font-size: 16px;
 }
 
-.architecture-sketch .mermaid {
-  display: flex;
+/* Default-safe: text summary is the resting state. JS only upgrades to SVG. */
+.diagram-fallback {
+  display: block;
+  margin-top: 22px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #09090b;
+  color: var(--muted);
+  padding: 22px;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.diagram-fallback strong {
+  display: block;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.diagram-fallback p {
+  margin: 0;
+  max-width: none;
+  font-size: 14px;
+}
+
+.architecture-sketch pre.mermaid {
+  display: none;
   align-items: center;
   justify-content: center;
   width: 100%;
   max-width: 100%;
-  min-height: 620px;
+  min-height: 280px;
   margin: 22px 0 0;
   overflow: auto;
   border: 1px solid var(--line);
@@ -489,11 +555,25 @@ p {
   font-size: 14px;
 }
 
+.architecture-sketch.diagram-ready .diagram-fallback {
+  display: none;
+}
+
+.architecture-sketch.diagram-ready pre.mermaid {
+  display: flex;
+}
+
 .architecture-sketch .mermaid svg {
   width: min(100%, 980px) !important;
   max-width: 980px;
   height: auto;
-  min-height: 560px;
+  min-height: 200px;
+}
+
+.diagram-note {
+  margin: 14px 0 0;
+  color: var(--faint);
+  font-size: 13px;
 }
 
 .secondary-projects {
@@ -587,6 +667,11 @@ p {
   font-size: 14px;
 }
 
+.training-line {
+  color: var(--faint);
+  font-size: 13px;
+}
+
 .cta-section {
   border-top: 1px solid var(--line);
   background: #0b0d10;
@@ -641,8 +726,40 @@ p {
     grid-template-columns: 1fr;
   }
 
+  .nav-inner {
+    position: relative;
+    flex-wrap: wrap;
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+    align-items: center;
+  }
+
   .nav-links {
     display: none;
+    order: 3;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: rgba(9, 9, 11, .96);
+    padding: 8px;
+  }
+
+  .nav-links.is-open {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 12px 10px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .nav-links a:last-child {
+    border-bottom: 0;
   }
 
   .cta-section .container {
